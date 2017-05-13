@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://assets/platine.png" type="Texture" id=1]
+[ext_resource path="res://assets/diode 1.png" type="Texture" id=2]
+[ext_resource path="res://assets/diode 2.png" type="Texture" id=3]
+
+[node name="Mainscene" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 360, 240 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 1
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 360.0
+margin/bottom = 240.0
+
+[node name="TextureFrame" type="TextureFrame" parent="Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 360.0
+margin/bottom = 240.0
+texture = ExtResource( 1 )
+modulate = Color( 0.0687408, 0.207031, 0.0871075, 1 )
+stretch_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+
+rect/rotation = 1.59036
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 52.0
+margin/top = 201.0
+margin/right = 64.0
+margin/bottom = 227.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+
