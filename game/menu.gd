@@ -37,5 +37,9 @@ func _on_bMusic_toggled( pressed ):
 	else:
 		get_node("BackgroundMusic").set_paused(false)
 		get_node("BackgroundMusic").play(0)
+<<<<<<< HEAD
 		get_node("bMusic").set_text("Gedudel abschalten")
+=======
+		get_node("bMusic").set_text("Gedudel abstellen")
+>>>>>>> c7cdf34605dfd73775eee719b8e7fad0399025d4
 	pass # replace with function body
