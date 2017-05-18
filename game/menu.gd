@@ -19,19 +19,23 @@ func _ready():
 
 func _on_VButtonArray_button_selected( button_idx ):
 	if (button_idx == 0):
+		get_node("Sound").play("Select")
 		get_tree().change_scene("res://Level.tscn")
 	if (button_idx == 1):
+		get_node("Sound").play("Select")
 		get_tree().quit()
 	if (button_idx == 2):
+		get_node("Sound").play("Select")
 		get_tree().change_scene("res://main_scene.tscn")
 	pass # replace with function body
 
 func _on_bMusic_toggled( pressed ):
+	get_node("Sound").play("Select")
 	if (pressed == true):
 		get_node("BackgroundMusic").set_paused(true)
 		get_node("bMusic").set_text("Gedudel anschalten")
 	else:
 		get_node("BackgroundMusic").set_paused(false)
 		get_node("BackgroundMusic").play(0)
-		get_node("bMusic").set_text("Gedudel ausschalten")
+		get_node("bMusic").set_text("Gedudel abschalten")
 	pass # replace with function body

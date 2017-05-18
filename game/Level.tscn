@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=4 format=1]
 
-[sub_resource type="TileSet" id=1]
+[ext_resource path="res://assets/test-tile.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/icon.png" type="Texture" id=2]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="root" type="Node"]
 
@@ -22,8 +27,9 @@ max_lines_visible = -1
 
 [node name="TileMap" type="TileMap" parent="."]
 
+transform/pos = Vector2( 129.926, 86.2183 )
 mode = 0
-tile_set = SubResource( 1 )
+tile_set = ExtResource( 1 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -36,6 +42,37 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray(  )
+tile_data = IntArray( -196610, 0, -196600, 0, 131085, 0, 262146, 0, 393209, 0, 393224, 0, 458769, 0 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="RobotHead" type="Sprite" parent="Node"]
+
+visibility/visible = false
+transform/pos = Vector2( 129.926, 86.2183 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/RobotHead"]
+
+transform/pos = Vector2( -1.19748, 0.59874 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 3.22397, 0, 0, 3.33912, 1.73699, -0.0545901 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/RobotHead/StaticBody2D"]
+
+transform/pos = Vector2( 1.73699, -0.0545901 )
+transform/scale = Vector2( 3.22397, 3.33912 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 
