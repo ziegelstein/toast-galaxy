@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://main_scene.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://character_physics.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -32,10 +33,11 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
+script/script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
 
@@ -62,7 +64,7 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 
@@ -91,7 +93,7 @@ custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
 contact_monitor = false
-sleeping = false
+sleeping = true
 can_sleep = true
 velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
@@ -100,7 +102,7 @@ damp_override/angular = -1.0
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
 
