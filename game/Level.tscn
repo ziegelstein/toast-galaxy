@@ -50,7 +50,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 196608, 1, 262157, 1, 393216, 0, 393218, 0, 393220, 0, 393224, 0, 393226, 0, 393228, 0, 393229, 0 )
+tile_data = IntArray( 262157, 1, 393216, 0, 393218, 0, 393220, 0, 393224, 0, 393226, 0, 393228, 0, 393229, 0 )
 
 [node name="Node" type="Node" parent="."]
 
@@ -64,13 +64,13 @@ region_rect = Rect2( 0, 0, 32, 32 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Node/RobotHead"]
 
 transform/pos = Vector2( -1.19748, 0.59874 )
-input/pickable = false
+input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 3.22397, 0, 0, 3.33912, 1.73699, -0.0545901 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
+constant_linear_velocity = Vector2( 1, 2 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
@@ -119,6 +119,6 @@ _update_shape_index = 0
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 112.975, 133.659 )
+transform/pos = Vector2( 128.897, 102.479 )
 
 
