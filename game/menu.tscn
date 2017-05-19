@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/music/Blip_Select8.wav" type="Sample" id=2]
-[ext_resource path="res://assets/music/04. Matrix Fight.ogg" type="AudioStream" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/music/Blip_Select8.wav" type="Sample" id=3]
+[ext_resource path="res://assets/music/04. Matrix Fight.ogg" type="AudioStream" id=4]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -10,12 +11,25 @@ samples/Select = {
 "db": 6.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 2 )
+"sample": ExtResource( 3 )
 }
 
 [node name="szeneRoot" type="Node"]
 
 script/script = ExtResource( 1 )
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="BackgroundLayer"]
+
+transform/pos = Vector2( 238.102, 135.942 )
+transform/scale = Vector2( 7.6523, 3.78551 )
+texture = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="."]
 
@@ -87,7 +101,7 @@ default/chorus_send = 0.0
 
 [node name="BackgroundMusic" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 3 )
+stream/stream = ExtResource( 4 )
 stream/play = true
 stream/loop = false
 stream/volume_db = 6.0
