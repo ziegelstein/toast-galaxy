@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://menu.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/hintergrund 1.png" type="Texture" id=2]
 [ext_resource path="res://assets/music/Blip_Select8.wav" type="Sample" id=3]
 [ext_resource path="res://assets/music/04. Matrix Fight.ogg" type="AudioStream" id=4]
 
@@ -27,8 +27,8 @@ scale = Vector2( 1, 1 )
 
 [node name="Sprite" type="Sprite" parent="BackgroundLayer"]
 
-transform/pos = Vector2( 238.102, 135.942 )
-transform/scale = Vector2( 7.6523, 3.78551 )
+transform/pos = Vector2( 240.362, 136.491 )
+transform/scale = Vector2( 1.49515, 1.51656 )
 texture = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="."]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://scripts/Roboter.gd" type="Script" id=1]
+[ext_resource path="res://assets/roboter.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 18.8444, 8.09336, 18.6866, 18.8223, 2.11992, 18.8223, 2.11992, 9.04003, 17.74, 7.93558 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 17.74, 7.93558, 2.11992, 9.04003, -0.404533, 9.04003, -0.720093, 2.7289, 3.22436, 1.3089, 9.21993, 1.3089 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 17.74, 7.93558, 9.21993, 1.3089, 11.5866, -0.742214, 14.8999, 1.3089, 16.0044, 2.25557, 16.7933, 4.14891 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 11.5866, -0.742214, 14.7422, -0.584436, 14.8999, 1.3089 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 17.74, 7.93558, 16.7933, 4.14891, 17.74, 4.46446 )
+
+[node name="Roboter" type="Area2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.473335, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0.473335, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0.473335, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 4 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0.473335, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 5 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0.473335, 0 )
+shapes/4/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.0
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+
+[node name="robot-sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 9.01477, 9.2294 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygone" type="CollisionPolygon2D" parent="."]
+
+transform/pos = Vector2( 0.473335, 0 )
+build_mode = 0
+polygon = Vector2Array( 3.22436, 1.3089, 9.21993, 1.3089, 11.5866, -0.742214, 14.7422, -0.584436, 14.8999, 1.3089, 16.0044, 2.25557, 16.7933, 4.14891, 17.74, 4.46446, 17.74, 7.93558, 18.8444, 8.09336, 18.6866, 18.8223, 2.11992, 18.8223, 2.11992, 9.04003, -0.404533, 9.04003, -0.720093, 2.7289 )
+shape_range = Vector2( 0, 4 )
+trigger = false
+
+[node name="RobotBody2D" type="KinematicBody2D" parent="."]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+
