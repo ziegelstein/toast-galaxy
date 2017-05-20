@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "name": "Standartfall",
+      "description": "Nichts passiert.",
+      "message": "Oh nein! In der Bar gab es eine große Rauferei, wobei einige Mitarbeiter verletzt und der heilige Biervorrat zerstört wurden. :O Die Bar wird in naher Zukunft wohl keine großen Einnahmen mehr generieren. Zudem sind deine Mitarbeiter ausser Gefecht gesetzt.",
+      "weight": "10",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Laaaaaaaangweilig.",
+          "message": "Hoffentlich wird der morgige Tag spannender.",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": []
+    },
+    {
       "name": "Massenschlaegerei_in_Bar",
       "description": "Reduziert Einnahmen von ###BAR### um 90 %, Setzt Ressource Bier auf null, zieht von random Stationen ein paar Mitarbeiter ab",
       "message": "Oh nein! In der Bar gab es eine große Rauferei, wobei einige Mitarbeiter verletzt und der heilige Biervorrat zerstört wurden. :O Die Bar wird in naher Zukunft wohl keine großen Einnahmen mehr generieren. Zudem sind deine Mitarbeiter ausser Gefecht gesetzt.",
