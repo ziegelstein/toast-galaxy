@@ -4,6 +4,7 @@ var current_scene = null
 
 var messages = []
 var modules = []
+var possible_modules = []
 var resources = {} setget , get_resources
 var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "Geld":1, "GeladenerLayer":1} setget , get_station_stats
 ## ToDo Add a dict for "other" items like the cycles or quest variables
@@ -11,9 +12,10 @@ var cycle = 0 # Number of "Days"
 var metacycles = 0 #Number of "Months"
 
 var resource_class = preload("res://resources/resource.gd")
+#var module_class = preload("res://scripts/module.gd")
 
 var PATH_RESOURCES = "res://data/resources.csv"
-var PATH_MODULES = "res://data/modules.csv"
+var PATH_MODULES = "res://data/module"
 
 func _init():
 	init_resources(PATH_RESOURCES)
@@ -119,7 +121,7 @@ func cycle_change():
 
 func init_resources(path):
 	var file = File.new()
-	file.open(PATH_RESOURCES, file.READ)
+	file.open(path, file.READ)
 	var line
 	var i
 	var tmp
@@ -127,7 +129,7 @@ func init_resources(path):
 		line = file.get_csv_line(";")
 		if(line.size()==2):
 			add_resource(line[0], line[1])
-		elif(line.size()==1):
+		elif(line.size()==1 and line[0]!=""):
 			add_resource(line[0], 0)
 		elif(line.size()>2 && line.size()%2==0):
 			tmp = add_resource(line[0], line[1])
@@ -137,5 +139,20 @@ func init_resources(path):
 				i += 2
 
 func init_modules(path):
+	var general_infos = get_line_array(path+"_general.csv")
+	var buildcost_infos = get_line_array(path+"_buildcost.csv")
+	var resources_infos = get_line_array(path+"_resources.csv")
+	var station_stats_infos = get_line_array(path+"_station_stats.csv")
+	
+	var i = 0
+	var mod
+	while i<general_infos.size():
+		pass
+
+func get_line_array(path):
+	var result = []
 	var file = File.new()
-	file.open(PATH_RESOURCES, file.READ)
+	file.open(path, file.READ)
+	while !file.eof_reached():
+		result.append(file.get_csv_line(";"))
+	return result
