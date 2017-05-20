@@ -151,7 +151,7 @@
           "name": "OK",
           "description": "Wartung muss sein",
           "message": "Können die das nicht wann anders machen?",
-          "outcome": "0"
+          "outcome": "##0,1##"
         }
       ],
       "outcomes": [
@@ -366,6 +366,154 @@
         }
       ],
       "outcomes": []
+    },
+    {
+      "name": "Werbung",
+      "description": "Nichts.",
+      "message": "Space Blablabla - Mit Space wird alles besser.",
+      "weight": "3",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Agh!",
+          "message": "Wie kommen die nur immer durch meinen Adblocker?",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": []
+    },
+    {
+      "name": "Diebstahl",
+      "description": "-5% Uron",
+      "message": "Jemand hat sich in der letzten Nacht in deine Kabine eingeschlichen und eine kleine Menge an Uron und deine geheime Pornosammlung gestohlen! Verdammt.",
+      "weight": "3",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Was?",
+          "message": "Wofür hab ich denn Security? Oder?",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "uron",
+          "value": "0,95",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Meteoritenschauer",
+      "description": "Nichts.",
+      "message": "Deine Crew quetscht sich an die Außenfenster und sieht einem Schwarm blau-violett-grünen Meteoriten zu, die in sicherer Entfernung vorbeifliegen und einen glitzernden Schweif hinterlassen. Ein tolles Spektakel. Und jetzt zurück an die Arbeit!!",
+      "weight": "3",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Junge, Junge!",
+          "message": "Wie können die nur so wertvolle Zeit für's Steine gucken verschwenden? Gut... es sind schöne Steine... Eigendlich könnt ich ja auch mal zu den Fenstern gehen..",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": []
+    },
+    {
+      "name": "Erpressung",
+      "description": "+5% Uron",
+      "message": "Ein Widersacher hat sich in deine Bar verirrt, wobei einige belastende Videoaufnahmen von ihm gemacht worden sind. Was stellst du damit an?",
+      "weight": "3",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Erpressen",
+          "message": "Das wird den Don stolz machen!",
+          "outcome": "0"
+        },
+        {
+          "name": "OK",
+          "description": "Beweise löschen",
+          "message": "Er wird sicher wiederkommen...",
+          "outcome": "1"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "uron",
+          "value": "1,05",
+          "valuetype": "0",
+          "operator": "3"
+        },
+        {
+          "valuekey": "uron",
+          "value": "1,0",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Bedrohung",
+      "description": "+10% Uron",
+      "message": "Ein Zwischenhändler liefert seine Waren wiederholt zu spät an dich aus. Hat der keinen Respekt vor dir? Langsam wird es Zeit zu handeln.",
+      "weight": "2",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Bedrohen",
+          "message": "Du schickst ein paar deiner Security-Mitarbeiter zu dem Händler und lässt sie 'freundlich' mit ihm 'verhandeln'. Damit konnten sie 10% mehr einnahmen für dich herausschlagen und der Händler wird es sich sicher nochmal überlegen, ob er verspätet liefert.",
+          "outcome": "0"
+        },
+        {
+          "name": "OK",
+          "description": "Nachsicht zeigen",
+          "message": "Naja, sicherlich gab es einen Grund für seine Verspätung. Solange es die Produktion nicht behindert...",
+          "outcome": "1"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "uron",
+          "value": "1,1",
+          "valuetype": "0",
+          "operator": "3"
+        },
+        {
+          "valuekey": "uron",
+          "value": "1,0",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Hamster",
+      "description": "-5% Ressourcenoutput",
+      "message": "Ein mutierter, verstrahlter Erden-Hamster wandert durch die Lüftungsschächte und beisst nachts deine Mitarbeiter in die Zehen. Die Müdigkeit deiner Mitarbeiter nimmt zu.",
+      "weight": "2",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Verdammt!",
+          "message": "Fangt das Viech doch endlich ein! -Wie war nochmal die Nummer vom Space-Kammerjäger?",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##RESSOURCENPRODUKTION GENERELL##",
+          "value": "0,95",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
     }
   ]
 }
