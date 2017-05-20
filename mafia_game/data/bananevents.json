@@ -1,4 +1,3 @@
-
 {
   "events": [
     {
@@ -70,14 +69,13 @@
         }
       ]
     },
-        {
+    {
       "name": "Infektion",
       "description": "Kein Einnahmen in den nächsten zwei Tagen",
       "message": "Eine Krankheit sucht deine Raumstation heim. Sie ist nicht tödlich, setzt aber 2 Tage sämtliche Mitarbeiter außer Gefecht. Du machst zwei Tage keine Einnahmen. Ohje, das wird Don gar nicht erfreuen..",
       "weight": "1",
       "requirements": [
-        {
-        }
+        {}
       ],
       "options": [
         {
@@ -96,13 +94,12 @@
         }
       ]
     },
-        {
+    {
       "name": "Dons_Geburtstag",
       "description": "Alle Einnahmen steigen um 20%",
       "message": "Don Fagiolo hat Geburtstag und ist zu Besuch da. Jeder deiner Mitarbeiter arbeitet einen Tag plötzlich viel motivierter und schneller! Der Don findet deine Arbeit hervorragend, Alfredo!",
       "weight": "1",
-      "requirements": [       
-      ],
+      "requirements": [],
       "options": [
         {
           "name": "OK",
@@ -120,13 +117,12 @@
         }
       ]
     },
-        {
+    {
       "name": "Feiertag",
       "description": "10 % mehr Uron Lohn an diesem Tag",
       "message": "Endlich zahlt sich die Arbeit aus. Deine Mitarbeiter bekommen heute an diesem intergalaktischem Feiertag mehr Geld!",
       "weight": "2",
-      "requirements": [       
-      ],
+      "requirements": [],
       "options": [
         {
           "name": "OK",
@@ -149,8 +145,7 @@
       "description": "-10% Uronstand, keine Tageseinnahmen",
       "message": "Damit auf deiner Raumstation alles rund läuft, werden die Techniker heute alle Stationen durchchecken und Reparaturen vornehmen. Es wird dich eine Tageseinnahme kosten.",
       "weight": "1",
-      "requirements": [       
-      ],
+      "requirements": [],
       "options": [
         {
           "name": "OK",
@@ -169,6 +164,84 @@
         {
           "valuekey": "uron",
           "value": "0,9",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Energiewolke",
+      "description": "-50% Ressourcenoutput",
+      "message": "Oh nein, sieht wohl so aus als würde eine galaktische Energiewolke auf uns zu kommen. Dabei hat doch der Wetterbericht angenehme -273 C vorhergesagt! Unsere Maschinen werden wohl heute nicht rund laufen..",
+      "weight": "1",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Dämlicher Wetterbericht!",
+          "message": "Man kann sich immer noch nicht auf die Wetterheinis verlassen!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##RESSOURCENPRODUKTION GENERELL##",
+          "value": "0,5",
+          "valuetype": "0",
+          "operator": "4"
+        }
+      ]
+    },
+    {
+      "name": "Toasdknappheit",
+      "description": "Nichts. ((EVENTUELL ÜBERARBEITEN))",
+      "message": "Aufgrund von Grafikeraufständen wurde die Toasdproduktion auf unbestimmte Zeit unterbrochen. Deine Mitarbeiter sind empört!",
+      "weight": "2",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Ärgerlich!",
+          "message": "Immer diese Grafiker...",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": []
+    },
+    {
+      "name": "AnrufI",
+      "description": "Nichts passiert.",
+      "message": "Der Don hat heute angerufen. Er hat von seinem neuen Alien-Chihuahua geredet und dir das Ohr vollgelabert, wie süß und böse er doch sei. Du willst ihn nicht verärgern und tust so als hättest du Interesse an dem, was er sagt.",
+      "weight": "2",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Mhm!",
+          "message": "Ja, selten die Dinger.",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": []
+    },
+    {
+      "name": "Spitzel_gefasst",
+      "description": "Heat vermindert",
+      "message": "Deine Mitarbeiter haben Jemanden dabei beobachtet, wie er seine Nase in Dinge gesteckt hat, die ihn verdammt noch mal nichts angehen! Nun durfte er sich die Luftschleuse von aussen ansehen. Ohne Raumanzug.",
+      "weight": "2",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Guten Flug!",
+          "message": "Hehehehahahahaha!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "heat",
+          "value": "0,75",
           "valuetype": "0",
           "operator": "3"
         }
