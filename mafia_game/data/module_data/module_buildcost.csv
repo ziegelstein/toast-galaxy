@@ -1,0 +1,3 @@
+# Contain all Buildcosts of an module; id;uron;ship_states;ressources (key;value)
+id;0;uron;150;Bauteile;20
+id;1;uron;50;Bauteile;5;Treibstoff;5
