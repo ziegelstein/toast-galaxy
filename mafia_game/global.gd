@@ -28,10 +28,12 @@ func get_last_messege():
 	return messages[messages.size()-1]
 	
 func add_message(message):
-	messages.append(messege)
+	if (message.lenth() != 0):
+		messages.append(messege)
 	pass
 
 func add_messages(messagearray):
-	for message in messagearray:
-		messages.append(message)
+	if (messagearray.size() != 0):
+		for message in messagearray:
+			messages.append(message)
 	pass

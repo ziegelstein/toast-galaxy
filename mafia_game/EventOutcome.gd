@@ -70,3 +70,5 @@ func fullfill():
 	elif (valuetype == 3):
 		##ToDo: Add List of other values into the singleton object
 		pass
+	global.add_message(message)
+	pass
