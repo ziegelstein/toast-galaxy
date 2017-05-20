@@ -27,3 +27,10 @@ func add_submodule():
 func on_cycle_change(modifications, cycle):
 	#Do stuff
 	return true
+
+func is_build_possible():
+	if (global.):
+	return false
+
+func on_build():
+	return false
