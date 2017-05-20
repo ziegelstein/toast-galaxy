@@ -42,7 +42,7 @@
     {
       "name": "Drogensensation",
       "description": "Einnahmen der Drogenlabore steigen um 50%",
-      "message": "Es ist DAS neue heisse Produkt auf dem Drogenmarkt und es kommt nur von DEINER Raumstation. Du bist für kurze Zeit Marktführer und vertickst das Zeug schneller als das es Alienjunkies überhaupt nehmen könnten. Einnahmen der Drogenlaboren massiv gesteigert",
+      "message": "Es ist DAS neue heisse Produkt auf dem Drogenmarkt und es kommt nur von DEINER Raumstation. Du bist für kurze Zeit Marktführer und vertickst das Zeug schneller als das es Alienjunkies überhaupt einnehmen können. Die Einnahmen der Drogenlaboren für heute gesteigert.",
       "weight": "1",
       "requirements": [
         {
@@ -67,6 +67,32 @@
           "value": "1,5",
           "valuetype": "0",
           "operator": "3"
+        }
+      ]
+    },
+        {
+      "name": "Infektion",
+      "description": "Kein Einnahmen in den nächsten zwei Tagen",
+      "message": "Eine Krankheit sucht deine Raumstation heim. Sie ist nicht tödlich, setzt aber 2 Tage sämtliche Mitarbeiter außer Gefecht. Du machst zwei Tage keine Einnahmen. Ohje, das wird Don gar nicht erfreuen..",
+      "weight": "1",
+      "requirements": [
+        {
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Och nöööö",
+          "message": "Wieder Hände waschen vergessen, was?",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##EINNAHMEN GENERELL##",
+          "value": "0",
+          "valuetype": "0",
+          "operator": "0"
         }
       ]
     }
