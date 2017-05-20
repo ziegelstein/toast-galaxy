@@ -19,9 +19,9 @@ func _ready():
 func get_resources():
 	return resources
 	
-func get_ressource(Key):
-	if (ressources.has(Key)):
-		return ressources[Key]
+func get_resource(Key):
+	if (resources.has(Key)):
+		return resources[Key]
 	return null #Should throw an error
 
 func get_station_stats():
