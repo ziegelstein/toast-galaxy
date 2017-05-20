@@ -40,40 +40,33 @@
       ]
     },
     {
-      "name": "Massenschlaegerei_in_Bar",
-      "description": "Reduziert Einnahmen von ###BAR### um 90 %, Setzt Ressource Bier auf null, zieht von random Stationen ein paar Mitarbeiter ab",
-      "message": "Oh nein! In der Bar gab es eine große Rauferei und dabei wurden einige Mitarbeiter verletzt und der heilige Biervorrat zerstört :O Diese Bar wird in naher Zukunft wohl keine großen  Einnahmen mehr generieren und deine Mitarbeiter nicht arbeiten können",
+      "name": "Drogensensation",
+      "description": "Einnahmen der Drogenlabore steigen um 50%",
+      "message": "Es ist DAS neue heisse Produkt auf dem Drogenmarkt und es kommt nur von DEINER Raumstation. Du bist für kurze Zeit Marktführer und vertickst das Zeug schneller als das es Alienjunkies überhaupt nehmen könnten. Einnahmen der Drogenlaboren massiv gesteigert",
       "weight": "1",
       "requirements": [
         {
           "weight": "0",
-          "valuekey": "bar",
+          "valuekey": "labor",
           "operator": "2",
           "value": "",
           "valuetype": "3"
-        },
-        {
-          "weight": "1",
-          "valuekey": "alkohol",
-          "operator": "0",
-          "value": "100",
-          "valuetype": "0"
         }
       ],
       "options": [
         {
           "name": "OK",
-          "description": "Habe Verstanden!",
-          "message": "Dann muss wohl jemand neues Bier holen!",
+          "description": "Wie geil!",
+          "message": "Tja, meine Leute haben's halt drauf.",
           "outcome": "0"
         }
       ],
       "outcomes": [
         {
-          "valuekey": "alkohol",
-          "value": "0",
+          "valuekey": "##EINNAHMEN LABOR##",
+          "value": "1,5",
           "valuetype": "0",
-          "operator": "4"
+          "operator": "3"
         }
       ]
     }
