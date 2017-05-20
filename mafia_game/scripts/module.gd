@@ -130,6 +130,7 @@ func destroy_module(cycles):
 		global.remove_module(self)
 		global.add_message("Modul "+ name +" wurde zerstört.")
 	elif will_destroyed == false:
+		##ToDo Add a "Will be destroyed" Sprite
 		will_destroyed = true
 		destroy_counter = cycles
 	else:
