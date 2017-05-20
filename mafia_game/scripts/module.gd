@@ -41,6 +41,7 @@ func is_build_possible():
 
 func on_build():
 	#build the module
-	
+	if (is_build_possible()):
+		global.get_station_stat("Geld") = global.get_station_stat("Geld") - buildprice
 	## ToDo Add logic
 	return false

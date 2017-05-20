@@ -16,15 +16,14 @@ func create_event_requierement(valuekey, value, valuetype, operator):
 	##ToDo
 	pass
 
-func create_event_weight_modifier():
-	##ToDo
-	pass
 	
-func create_event_option():
+func create_event_option(name, desc, message, outcomes, requierements):
+	#vars: outcomes = array of outcomes, requierements = array of requierements, name = string, desc = string, message = string
 	##ToDo
 	pass
 
-func create_event():
+func create_event(name, desc, message, requierements, outcomes, eventOptions):
+	#vars: name = string, desc = string, message = string, requierements = array of requierement, outcomes = array of outcomes, eventOptions = array of eventOptions
 	##ToDo
 	pass
 
