@@ -119,6 +119,60 @@
           "operator": "3"
         }
       ]
+    },
+        {
+      "name": "Feiertag",
+      "description": "10 % mehr Uron Lohn an diesem Tag",
+      "message": "Endlich zahlt sich die Arbeit aus. Deine Mitarbeiter bekommen heute an diesem intergalaktischem Feiertag mehr Geld!",
+      "weight": "2",
+      "requirements": [       
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Faule Bande!",
+          "message": "Naja, wenigstens arbeiten sie trotzdem.",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##EINNAHMEN GENERELL##",
+          "value": "0,9",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Sicherheitswartung",
+      "description": "10 % mehr Uron Lohn an diesem Tag",
+      "message": "Endlich zahlt sich die Arbeit aus. Deine Mitarbeiter bekommen heute an diesem intergalaktischem Feiertag mehr Geld!",
+      "weight": "2",
+      "requirements": [       
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Faule Bande!",
+          "message": "Naja, wenigstens arbeiten sie trotzdem.",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##EINNAHMEN GENERELL##",
+          "value": "0",
+          "valuetype": "0",
+          "operator": "4"
+        },
+        {
+          "valuekey": "uron",
+          "value": "0,9",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
     }
   ]
 }
