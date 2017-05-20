@@ -1,24 +1,26 @@
-[
-  {
-    "name": "Massenschlaegerei_in_Bar",
-    "description": "Reduziert Einnahmen von ###BAR### um 90 %, Setzt Ressource Bier auf null, zieht von random Stationen ein paar Mitarbeiter ab",
-    "message": "Oh nein! In der Bar gab es eine große Rauferei und dabei wurden einige Mitarbeiter verletzt und der heilige Biervorrat zerstört :O Diese Bar wird in naher Zukunft wohl keine großen  Einnahmen mehr generieren und deine Mitarbeiter nicht arbeiten können",
-    "weight": "1",
-    "requirements": [
-      {
-        "weight": "0",
-        "valuekey": "bar",
-        "operator": "2",
-        "value": "",
-        "valuetype": "3"
-      },
-      {
-        "weight": "1",
-        "valuekey": "alkohol",
-        "operator": "0",
-        "value": "100",
-        "valuetype": "0"
-      }
-    ]
-  }
-]
+{
+  "events": [
+    {
+      "name": "Massenschlaegerei_in_Bar",
+      "description": "Reduziert Einnahmen von ###BAR### um 90 %, Setzt Ressource Bier auf null, zieht von random Stationen ein paar Mitarbeiter ab",
+      "message": "Oh nein! In der Bar gab es eine große Rauferei und dabei wurden einige Mitarbeiter verletzt und der heilige Biervorrat zerstört :O Diese Bar wird in naher Zukunft wohl keine großen  Einnahmen mehr generieren und deine Mitarbeiter nicht arbeiten können",
+      "weight": "1",
+      "requirements": [
+        {
+          "weight": "0",
+          "valuekey": "bar",
+          "operator": "2",
+          "value": "",
+          "valuetype": "3"
+        },
+        {
+          "weight": "1",
+          "valuekey": "alkohol",
+          "operator": "0",
+          "value": "100",
+          "valuetype": "0"
+        }
+      ]
+    }
+  ]
+}
