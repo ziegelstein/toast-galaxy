@@ -63,6 +63,8 @@ func remove_module(module):
 	modules.remove(module)
 	pass
 
+func get_modules():
+	return modules
 
 
 # Some message functions for central logging and message sending

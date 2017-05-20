@@ -77,11 +77,23 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 11.0
 margin/top = 56.0
-margin/right = 157.0
-margin/bottom = 551.0
+margin/right = 178.0
+margin/bottom = 547.0
 alignment = 0
 
 [node name="resources" type="VBoxContainer" parent="left_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 167.0
+margin/bottom = 240.0
+alignment = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="left_panel/resources"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
@@ -89,11 +101,11 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 146.0
-margin/bottom = 104.0
+margin/right = 167.0
+margin/bottom = 14.0
 alignment = 0
 
-[node name="Label" type="Label" parent="left_panel/resources"]
+[node name="Label" type="Label" parent="left_panel/resources/HBoxContainer"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -101,12 +113,24 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 146.0
+margin/right = 71.0
 margin/bottom = 14.0
 text = "1.203 Uron"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="TextureFrame" type="TextureFrame" parent="left_panel/resources/HBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 75.0
+margin/top = 0.0
+margin/right = 75.0
+margin/bottom = 14.0
+stretch_mode = 3
 
 [node name="Label 3" type="Label" parent="left_panel/resources"]
 
@@ -116,7 +140,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 18.0
-margin/right = 146.0
+margin/right = 167.0
 margin/bottom = 32.0
 text = "85/100 Energy"
 percent_visible = 1.0
@@ -131,7 +155,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 36.0
-margin/right = 146.0
+margin/right = 167.0
 margin/bottom = 50.0
 text = "12/13 Aliensklaven"
 percent_visible = 1.0
@@ -146,7 +170,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 54.0
-margin/right = 146.0
+margin/right = 167.0
 margin/bottom = 68.0
 text = "15 / 24 Spaceweed"
 percent_visible = 1.0
@@ -161,7 +185,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 72.0
-margin/right = 146.0
+margin/right = 167.0
 margin/bottom = 86.0
 text = "8/10 Lagerraum"
 percent_visible = 1.0
@@ -176,7 +200,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 90.0
-margin/right = 146.0
+margin/right = 167.0
 margin/bottom = 104.0
 percent_visible = 1.0
 lines_skipped = 0
@@ -189,9 +213,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 108.0
-margin/right = 146.0
-margin/bottom = 111.0
+margin/top = 244.0
+margin/right = 167.0
+margin/bottom = 247.0
 
 [node name="message_log" type="RichTextLabel" parent="left_panel"]
 
@@ -200,9 +224,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 115.0
-margin/right = 146.0
-margin/bottom = 495.0
+margin/top = 251.0
+margin/right = 167.0
+margin/bottom = 491.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
