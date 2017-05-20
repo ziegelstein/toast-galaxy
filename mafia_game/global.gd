@@ -12,6 +12,11 @@ var metacycles = 0 #Number of "Months"
 
 var resource_class = preload("res://resources/resource.gd")
 
+var PATH_RESOURCES = "res://data/resources.csv"
+
+func _init():
+	init_resources(PATH_RESOURCES)
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -29,7 +34,7 @@ func set_resource(key, value):
 	
 func add_resource(key, value):
 	resources[key] = resource_class.new(key, value)
-	pass
+	return resources[key]
 
 func get_resource(key):
 	if (resources.has(key)):
@@ -109,3 +114,22 @@ func cycle_change():
 	##ToDo Add a "Draw an Event"
 	##ToDo Think about other stuff that happen around cycle change
 	pass
+
+func init_resources(path):
+	var file = File.new()
+	file.open(PATH_RESOURCES, file.READ)
+	var line
+	var i
+	var tmp
+	while !file.eof_reached():
+		line = file.get_csv_line()
+		if(line.size()==2):
+			add_resource(line[0], line[1])
+		elif(line.size()==1):
+			add_resource(line[0], 0)
+		elif(line.size()>2 && line.size()%2==0):
+			tmp = add_resource(line[0], line[1])
+			i = 2
+			while i<line.size():
+				tmp.add_property(line[i],line[i+1])
+				i += 2
