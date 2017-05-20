@@ -14,6 +14,7 @@ var is_build = false
 # Position vars
 var position = 0 # Position of the module on the space station
 # Sprite Vars
+var is_visible = false
 var pos_vector = Vector2(0,0)
 var rotation = deg2rad(0) # The rotation in degree
 var mySprite
@@ -27,7 +28,10 @@ func _init(modname, id):
 func _ready():
 	mySprite = get_node("moduleSprite")
 	name = modname + str(id)
-	mySprite.set_texture(
+	var imageTexture = ImageTexture.new()
+	mySprite.set_texture(imageTexture.load(spritepath))
+	mySprite.set_pos(pos_vector)
+	mySprite.set_rot(rotation)
 
 func add_submodule():
 	pass

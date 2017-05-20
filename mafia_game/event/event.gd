@@ -21,21 +21,23 @@ func _init(name, desc, message, weight, requierements, outcomes, eventOptions):
 	self.weight = weight
 	self.eventOptions = eventOptions
 	self.requierements = requirements
+	self.requierements = requierements
+	#self.weightmodifiers = weightmodifiers
 	self.outcomes = outcomes
-	if (not eventOptions.empty()):
+	if (eventOptions != null && eventOptions.size()>0):
 		hasOptions = true
 	# Check if the requierements for the Event are fullfilled
-	if (not requierements.empty()):
+	if (eventOptions != null && requierements.size()>0):
 		for requierement in requierements:
 			if(not requierement.check()):
 				isPossible = false
 				break
 			else:
-				weight = weigth + requierment.get_weight()
+				weight = weight + requierement.get_weight()
 		weight = int(weight / requierements.size())
 	# Modify the weight of the Event
 
-	if (not outcomes.empty()):
+	if (outcomes != null && outcomes.size()>0):
 		hasOutcomes = true
 	pass
 
