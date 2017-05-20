@@ -3,6 +3,7 @@ extends Node
 var current_scene = null
 
 var messages = []
+var modules = []
 var resources = {} setget , get_resources
 var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "Geld":1} setget , get_station_stats
 ## ToDo Add a dict for "other" items like the cycles or quest variables
@@ -30,7 +31,7 @@ func get_last_messege():
 	return messages[messages.size()-1]
 	
 func add_message(message):
-	if (message.lenth() != 0):
+	if (message.length() != 0):
 		messages.append(messege)
 	pass
 
@@ -39,6 +40,9 @@ func add_messages(messagearray):
 		for message in messagearray:
 			messages.append(message)
 	pass
+
+func add_module(module):
+	modules.append(module)
 
 # Functions for the cycle change:
 
@@ -54,6 +58,9 @@ func cycle_change():
 		##ToDo Add some more fancy interaction
 		station_stats[Geld] = station_stats[Geld] - 1000
 	##ToDo Add a Loop that calls every "daily module methode"
+	for mod in modules:
+		if(mod.has_method("daily")):
+			mod.daily()
 	##ToDo Add a "Draw an Event"
 	##ToDo Think about other stuff that happen around cycle change
 	pass
