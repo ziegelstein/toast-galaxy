@@ -29,18 +29,28 @@ func add_resource(key, value):
 	resources[key] = value
 	pass
 
-func get_resource(Key):
-	if (resources.has(Key)):
-		return resources[Key]
+func get_resource(key):
+	if (resources.has(key)):
+		return resources[key]
 	return null #Should throw an error
 
 func get_station_stats():
 	return station_stats
 
-func get_station_stat(Key):
-	if (station_stats.has(Key)):
-		return station_stats[Key]
+func get_station_stat(key):
+	if (station_stats.has(key)):
+		return station_stats[key]
 	return null #Should throw an error
+	
+func set_station_stat(key, value):
+	if (station_stats.has(key)):
+		station_stats[key]=value
+		return true
+	return false
+
+func add_station_stat(key, value):
+	station_stats[key]=value
+	pass
 	
 func add_module(module):
 	if (modules.has(module) == false):

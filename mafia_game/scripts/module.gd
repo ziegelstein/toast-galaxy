@@ -27,7 +27,7 @@ var pos_vector = Vector2(0,0)
 var rotation = deg2rad(0) # The rotation in degree
 var mySprite
 
-### Constructing Methods ###
+### Constructing Functions ###
 func _init(modname, id):
 	self.modname = modname
 	self.id = id
@@ -48,16 +48,51 @@ func set_graph():
 	else: mySprite.show()
 
 func set_module_informations():
+	if (remaining_build_time != 0):
+		module_informations["Bauzeit"] = remaining_build_time
+	if (is_build == false):
+		module_informations["Baukosten"] = buildprice
+		
 	pass
 
-### GUI Methods ###
-func get_module_values():
-	set_module_values()
+func set_module_settings():
 	pass
+	
+func build_module_settings():
+	#Do Logic
+	pass
+
+### GUI Functions ###
+func get_module_informations():
+	set_module_informations()
+	return module_informations
+
+func get_module_settings():
+	set_module_settings()
+	return module_settings
+
+func return_module_settings(module_settings):
+	self.module_settings = module_settings
+	#add Logic
+	pass
+	
 
 ### General Getter and Setter ###
+func set_name(name):
+	self.name = name
+	pass
 
-### Building Methods ###
+func set_modname(modname):
+	self.modname = modname
+	pass
+
+func set_desc(description):
+	self.desc = description
+	pass
+
+func get_sprite():
+	return mySprite
+### Building Functions ###
 func add_submodule():
 	pass
 
@@ -84,8 +119,12 @@ func on_build(position, pos_vector, rotation):
 		##ToDo Add a "In Construction" Sprite
 		set_graph()
 		global.add_message("Modul " + name + " wird gebaut.")
-		return true
+		return register_modul()
 	return false
+	
+func destroy_module(cycles):
+	global.set_station_stat
+	pass
 	
 func set_is_build(boolean):
 	is_build = boolean
@@ -94,14 +133,16 @@ func set_is_build(boolean):
 func get_build_time():
 	return build_time
 
+#### Submodule Functions ####
+
 ### Cycle Functions ###
 
 func register_modul():
-	pass
+	return global.add_module(self)
 
 func on_cycle_change(modifications, cycle):
 	if (is_build):
-		#Do Stuff
+		global.add_message(cycle_logic(modifications, cycle))
 		pass
 	# If the building process is still in work, the counter of the remaing decreases by one, if the counter fall to 0 the module is build
 	else:
@@ -110,3 +151,7 @@ func on_cycle_change(modifications, cycle):
 		if (remaining_build_time <= 0):
 			set_is_build(true)
 	return true
+	
+func cycle_logic(modifications, cycle):
+	# Method there all the Module Magic happens, return a message
+	return ""
