@@ -50,11 +50,16 @@ func get_weight():
 
 func is_possible():
 	# Returns bool that is true than all s are fulfilled
-	return isPossible
+	if(!requirements.empty()):
+		for req in requirements:
+			if(!req.check()):
+				return false
+	return true
 
 func fullfill():
 	# Generates the outcome of the Event
 	##ToDo: Options müssen auch eingepflegt werden
+	####### Gewählte Option enthält outcome_no, die array-position vom outcome entspricht
 	if (hasOutcomes):
 		for outcome in outcomes:
 			outcome.fullfill()

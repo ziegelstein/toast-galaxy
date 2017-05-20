@@ -21,6 +21,6 @@ func _ready():
 	#	events += ev["name"]
 	var event_array = em.get_event()
 	for ev in event_array:
-		events += ev.name
+		events += ev.to_string()+"\n"
 	
 	label.set_text(events)

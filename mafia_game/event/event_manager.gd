@@ -77,7 +77,6 @@ func parse_event_file(path):
 
 # Nimmt Event-Daten und gibt daraus erstelltes Event-Objekt zurück
 func parse_event(event_data):
-	# TODO Outcomes und Options hinzufügen
 	var new_event = event_class.new(event_data["name"], event_data["description"], event_data["message"], event_data["weight"], parse_requirements(event_data["requirements"]), parse_outcomes(event_data["outcomes"]), parse_options(event_data["options"]))
 	Events.append(new_event)
 
