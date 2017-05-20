@@ -4,7 +4,7 @@ var current_scene = null
 
 var messages = []
 var modules = []
-var resources = {} setget , get_resources
+var resources = {"Uron":1000} setget , get_resources
 var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "Geld":1, "GeladenerLayer":1} setget , get_station_stats
 ## ToDo Add a dict for "other" items like the cycles or quest variables
 var cycle = 0 # Number of "Days"
