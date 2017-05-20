@@ -2,7 +2,7 @@
 
 Der berüchtigte **Ziegelstein**, er ist so hart und ist der Grundstein von unserem Team. Er hat uns alle dazu bewegt ein Wochenende zu investieren und freiwillig Stress (und Spaß) zu haben etwas Eigenes zu schaffen. Er ist Bestandteil unserer Programmierer und arbeitete viel an der Implementierung der Events und an den Modulen.
 
-**Wuhsel** hat dazu beigetragen, dass die Ressourcen im Game so funktionieren wie sie sollen. Darüber hinaus hatte seine Finger ebenfalls ein wenig in der Implementierung der Zufallevents im Spiel oder überlegte sich Systeme wie man unsere Spiel-Daten ambesten darstellt.
+**Wuhsel** hat dazu beigetragen, dass die Ressourcen im Game so funktionieren wie sie sollen. Darüber hinaus hatte er seine Finger ebenfalls ein wenig in der Implementierung der Zufallevents im Spiel oder überlegte sich Systeme wie man unsere Spiel-Daten ambesten darstellt.
 
 **Rouven** wurde von Ziegel ins Team geholt um mit seinem Optimismus dem Team in der Not Hoffnung zu schenken, bis sie irgendwann genug von ihm haben und weiter am Projekt arbeiten. Wo auch immer Arbeit frei war, hat er mitgeholfen, beispielsweise Events und Texte geschrieben, kleinere Designs und Icons entworfen oder Musik/Soundeffects vorbereitet.
 
