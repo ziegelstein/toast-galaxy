@@ -18,9 +18,19 @@ func _ready():
 
 func get_resources():
 	return resources
+	
+func get_ressource(Key):
+	if (ressources.has(Key)):
+		return ressources[Key]
+	return null #Should throw an error
 
 func get_station_stats():
 	return station_stats
+
+func get_station_stat(Key):
+	if (station_stats.has(Key)):
+		return station_stats[Key]
+	return null #Should throw an error
 
 # Some message functions for central logging and message sending
 
@@ -32,7 +42,7 @@ func get_last_messege():
 	
 func add_message(message):
 	if (message.length() != 0):
-		messages.append(messege)
+		messages.append(message)
 	pass
 
 func add_messages(messagearray):
@@ -56,7 +66,7 @@ func cycle_change():
 		metacycles = metacycles + 1
 		add_message("Der Don hat sich seinen Anteil genommen")
 		##ToDo Add some more fancy interaction
-		station_stats[Geld] = station_stats[Geld] - 1000
+		station_stats["Geld"] = station_stats["Geld"] - 1000
 	##ToDo Add a Loop that calls every "daily module methode"
 	for mod in modules:
 		if(mod.has_method("daily")):
