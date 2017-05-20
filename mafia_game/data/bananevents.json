@@ -146,16 +146,16 @@
     },
     {
       "name": "Sicherheitswartung",
-      "description": "10 % mehr Uron Lohn an diesem Tag",
-      "message": "Endlich zahlt sich die Arbeit aus. Deine Mitarbeiter bekommen heute an diesem intergalaktischem Feiertag mehr Geld!",
-      "weight": "2",
+      "description": "-10% Uronstand, keine Tageseinnahmen",
+      "message": "Damit auf deiner Raumstation alles rund läuft, werden die Techniker heute alle Stationen durchchecken und Reparaturen vornehmen. Es wird dich eine Tageseinnahme kosten.",
+      "weight": "1",
       "requirements": [       
       ],
       "options": [
         {
           "name": "OK",
-          "description": "Faule Bande!",
-          "message": "Naja, wenigstens arbeiten sie trotzdem.",
+          "description": "Wartung muss sein",
+          "message": "Können die das nicht wann anders machen?",
           "outcome": "0"
         }
       ],
