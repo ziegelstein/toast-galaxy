@@ -20,6 +20,7 @@ func _init(name, desc, message, weight, requierements, outcomes, eventOptions):
 	self.message = message
 	self.weight = weight
 	self.eventOptions = eventOptions
+	self.requierements = requirements
 	self.requierements = requierements
 	#self.weightmodifiers = weightmodifiers
 	self.outcomes = outcomes
