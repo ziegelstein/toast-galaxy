@@ -71,6 +71,7 @@ func cycle_change():
 	for mod in modules:
 		if(mod.has_method("daily")):
 			mod.daily()
+	##ToDo Generate some Day variables, the general activity for example
 	##ToDo Add a "Draw an Event"
 	##ToDo Think about other stuff that happen around cycle change
 	pass
