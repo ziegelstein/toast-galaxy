@@ -16,9 +16,9 @@ Ein Event besteht aus einigen Grundvariablen, einigen Unterkomponenten und einig
 - **message** Eine Nachricht die geschrieben wird sobald das Event "beendet" ist.
 ###Eventkomponenten
 - *requierements* Eine Liste aller Bediengungen, die Erfüllt sein müssen, damit das Element "gezogen" werden kann. Kann leer bleiben wenn es keine Bediengungen gibt. Mehr Informationen zu [requierements](#requierements).
-- *weightmodifiers* Eine Liste aller "Gewichtsmodifikatoren", wenn die Bedingung eines Gewichtsmodifikators erfüllt ist, wird das Event häufiger in die Liste der möglichen Events gesteckt -> die Wahrscheinlichkeit das es gezogen wird erhöht sich. Die Liste kann Leer bleiben wenn das Event keine Gewichtsmodifikatoren hat, in dem Fall ist das Gewicht 1 und das Event wird genau einmal in der Liste der möglichen Events vorkommen. Mehr Informationen zu [weightmodifiers](#weightmodifiers).
 - *outcomes* Eine Liste aller Folgen, die durch das Event erzeugt werden. Kann leer bleiben, wenn das Event keine Folgen hat. Wird nicht aktiviert wenn das Event über **Optionen** verfügt. Mehr Informationen zu [outcomes](outcomes).
 - *eventOptions* Eine Liste aller Auswahlmöglichkeiten, die in diesem Event möglich sind. Kann Leer bleiben wenn es keine Optionen gibt. Mehr Informationen zu [Optionen](#Options).
+- *weight* Das Gewicht eines Events, bestimmt wie oft ein Event in der Liste aller verfügbaren Events vorkommt (ist das weight=1 kommt es einmal in der Liste vor, ist das weight = 2, kommt es zweimal vor usw.)
 
 ##requierements
 Ein Requierement ist eine Bedingung die Erfüllt sein muss damit ein Event überhaupt in die Liste der möglichen Events kommt. Ein Requierment kann Grundsätzlich (nahezu) alle Variablen abfragen, die im Globalen "Singleton" gespeichert werden. Ein Requierement hat folgende Variablen, die (fast immer) angegeben werden müssen:
@@ -27,12 +27,8 @@ Ein Requierement ist eine Bedingung die Erfüllt sein muss damit ein Event über
 - **value** Der "Wert" auf den hin geprüft werden soll. Wenn der Spieler z.b. mehr als 3000 Uron braucht, wäre der Value -> 3000, wenn er eine Werkstatt gebaut haben muss -> "workshop".
 - *valuetype* Die Art des values, also ob es eine Ressource ist, ein Station_Stat, ein Module oder ein sonstiger Wert. Wäre schön wenn das angegeben wird, ist aber kein muss. (Muss dann halt nen Programmierer raussuchen)
 - **operator** Der Operator auf den hin geprüft wird. Ist immer als Zahl angegeben, eine 0 überprüft ob der angegebene Value größer als der Wert des Spielers ist, eine 1 überprüft ob der Wert kleiner ist und eine 2 überprüft ob der Wert übereinstimmt.
+- **weight** Das "Gewicht" eines requierements, wenn das requierement erfüllt wird erhöht sich die Wahrscheinlichkeit des Events, das es vorkommt. Die Summe aller weights wird am Ende gemittelt
 
-##weightmodifiers
-Ein weightmodifier modifiziert das "Gewicht" eines Events. Das Gewicht entscheidet wie oft ein Event in der Liste aller möglichen Events vorkommt, dabei heißt ein Gewicht von 1, das ein Event genau einmal vorkommt, ein Gewicht von 2 das ein Gewicht genau 2 mal vorkommt, ein Gewicht von 3 das es dreimal vorkommt usw. ***WICHTIG*** Aus allen Gewichtsmodifikatoren eines Events wird der Durchschnitt gebildet! (Sprich alle addiert und dann durch die Anzahl der Modifikatoren geteilt). Ein weightmodifier hat folgende Variablen:
-###weightmodifiervariablen
-- **requierment** Ein weightmodifier hat eine [Bedingung](#requierements) die Erfüllt werden muss, damit das Gewicht modifiziert wird. Soll es keine Bedingung geben, bitte "*null*" angeben.
-- **weightgain** Das Gewicht das auf das Gewicht des Events addiert wird. Aus der Summe aller Modifikatoren wird der Durchschnitt gebildet.
 
 ##outcomes
 Outcomes bestimmen die Folgen eines Events. Mit einem Outcome kann man eine Variable aus allen Variablen des globalen Singletons verändern. Ein Outcome hat folgende Variablen:
