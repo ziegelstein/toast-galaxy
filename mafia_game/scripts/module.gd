@@ -62,11 +62,17 @@ func set_module_informations():
 		module_informations["Baukosten"] = buildprice
 		if (buildmaterials.size() != 0):
 			for key in buildmaterials.keys():
-				module_informations[key] = buildmaterials[key]
-		
+				module_informations[(key+"-Baukosten")] = buildmaterials[key]
+	if (not module_needs.empty()):
+		for module_need_key in module_needs.keys():
+			module_informations[(module_need_key+"verbrauch")] = module_needs[module_need_key]
+	if (not module_production.empty()):
+		for module_production_key in module_production.keys():
+			module_informations[(module_need_key+"produktion")] = module_production[module_production_key]
 	pass
 
 func set_module_settings():
+	# Do Logic
 	pass
 	
 func build_module_settings():
@@ -144,6 +150,7 @@ func on_build(position, pos_vector, rotation):
 func destroy_module(cycles):
 	# Destroy the module
 	if (cycles <= 0):
+		# If the the cycles that are needed to destroy the module are zero, the module is instantly destroyed
 		global.remove_module(self)
 		global.add_message("Modul "+ name +" wurde zerstört.")
 	elif will_destroyed == false:
