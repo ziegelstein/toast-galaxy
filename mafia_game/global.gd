@@ -10,6 +10,8 @@ var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaecht
 var cycle = 0 # Number of "Days"
 var metacycles = 0 #Number of "Months"
 
+var resource_class = preload("res://resources/resource.gd")
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -21,12 +23,12 @@ func get_resources():
 
 func set_resource(key, value):
 	if resources.has(key):
-		resources[key] = value
+		resources[key].value = value
 		return true
 	return false
 	
 func add_resource(key, value):
-	resources[key] = value
+	resources[key] = resource_class.new(key, value)
 	pass
 
 func get_resource(key):
