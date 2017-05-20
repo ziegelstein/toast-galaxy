@@ -9,7 +9,7 @@ var event_option_class = preload("res://event/event_option.gd")
 var event_outcome_class = preload("res://event/event_outcome.gd")
 
 func _init():
-	parse_event_file("res://data/events.json")
+	parse_event_file("res://data/bananevents.json")
 
 func _ready():
 	pass
@@ -85,8 +85,9 @@ func parse_requirements(requirements_data):
 	var new_req
 	var req_array = []
 	for req in requirements_data:
-		new_req = event_requirement_class.new(req["valuekey"], req["value"], req["valuetype"], req["operator"], req["weight"]) 
-		req_array.append(new_req)
+		if(!req.empty()):
+			new_req = event_requirement_class.new(req["valuekey"], req["value"], req["valuetype"], req["operator"], req["weight"]) 
+			req_array.append(new_req)
 	return req_array
 
 
