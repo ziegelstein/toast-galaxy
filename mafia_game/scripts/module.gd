@@ -92,8 +92,12 @@ func set_desc(description):
 	self.desc = description
 	pass
 
+func get_name():
+	return name
+
 func get_sprite():
 	return mySprite
+	
 ### Building Functions ###
 func add_submodule():
 	pass
