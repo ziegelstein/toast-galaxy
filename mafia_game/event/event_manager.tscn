@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://scripts/EventManager.gd" type="Script" id=1]
+[ext_resource path="res://event/event_manager.gd" type="Script" id=1]
 
 [node name="event_manager" type="Node"]
 
