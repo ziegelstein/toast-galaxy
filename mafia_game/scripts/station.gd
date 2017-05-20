@@ -21,3 +21,8 @@ func get_number_of_layers():
 	
 func get_layer(layernum):
 	return station_layers[layernum]
+	
+func change_layer(layernum):
+	global.set_station_stat("GeladenerLayer", layernum)
+	for station_layer in station_layers:
+		station_layer.update_sprite()
