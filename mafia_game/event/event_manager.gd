@@ -5,6 +5,8 @@ var preparedEvents = [] # Array of all Events that are possible (which requierem
 
 var event_class = preload("res://event/event.gd")
 var event_requirement_class = preload("res://event/event_requierement.gd")
+var event_option_class = preload("res://event/event_option.gd")
+var event_outcome_class = preload("res://event/event_outcome.gd")
 
 func _init():
 	parse_event_file("res://data/events.json")
@@ -72,10 +74,11 @@ func parse_event_file(path):
 	for ev in events_dict["events"]:
 		event = parse_event(ev)
 
+
 # Nimmt Event-Daten und gibt daraus erstelltes Event-Objekt zurück
 func parse_event(event_data):
 	# TODO Outcomes und Options hinzufügen
-	var new_event = event_class.new(event_data["name"], event_data["description"], event_data["message"], event_data["weight"], parse_requirements(event_data["requirements"]), null, null, null)
+	var new_event = event_class.new(event_data["name"], event_data["description"], event_data["message"], event_data["weight"], parse_requirements(event_data["requirements"]), parse_outcomes(event_data["outcomes"]), parse_options(event_data["options"]))
 	Events.append(new_event)
 
 func parse_requirements(requirements_data):
@@ -85,3 +88,21 @@ func parse_requirements(requirements_data):
 		new_req = event_requirement_class.new(req["valuekey"], req["value"], req["valuetype"], req["operator"], req["weight"]) 
 		req_array.append(new_req)
 	return req_array
+
+
+func parse_options(options_data):
+	var new_option
+	var option_array = []
+	for opt in options_data:
+		new_option = event_option_class.new(opt["name"], opt["description"], opt["message"], opt["outcome"])
+		option_array.append(new_option)
+	return option_array
+
+func parse_outcomes(outcome_data):
+	var new_outcome
+	var outcome_array = []
+	for out in outcome_data:
+		new_outcome = event_outcome_class.new(out["valuekey"],out["value"],out["valuetype"],out["operator"])
+		outcome_array.append(new_outcome)
+	return outcome_array
+

@@ -13,7 +13,6 @@ Ein Event besteht aus einigen Grundvariablen, einigen Unterkomponenten und einig
 ### Eventvariablen
 - **name** Der Name des Events, sollte nach Möglichkeit einzig artig sein, und wird immer benötigt.
 - **description** Die Beschreibung oder Geschichte des Events, ein einfacher String (unformatierter Text). Wird immer benötigt.
-- **message** Eine Nachricht die geschrieben wird sobald das Event "beendet" ist.
 ### Eventkomponenten
 - *requierements* Eine Liste aller Bediengungen, die Erfüllt sein müssen, damit das Element "gezogen" werden kann. Kann leer bleiben wenn es keine Bediengungen gibt. Mehr Informationen zu [requierements](#requierements).
 - *outcomes* Eine Liste aller Folgen, die durch das Event erzeugt werden. Kann leer bleiben, wenn das Event keine Folgen hat. Wird nicht aktiviert wenn das Event über **Optionen** verfügt. Mehr Informationen zu [outcomes](outcomes).

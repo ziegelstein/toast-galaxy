@@ -1,0 +1,178 @@
+
+{
+  "events": [
+    {
+      "name": "Massenschlaegerei_in_Bar",
+      "description": "Reduziert Einnahmen von ###BAR### um 90 %, Setzt Ressource Bier auf null, zieht von random Stationen ein paar Mitarbeiter ab",
+      "message": "Oh nein! In der Bar gab es eine große Rauferei, wobei einige Mitarbeiter verletzt und der heilige Biervorrat zerstört wurden. :O Die Bar wird in naher Zukunft wohl keine großen Einnahmen mehr generieren. Zudem sind deine Mitarbeiter ausser Gefecht gesetzt.",
+      "weight": "1",
+      "requirements": [
+        {
+          "weight": "0",
+          "valuekey": "bar",
+          "operator": "2",
+          "value": "",
+          "valuetype": "3"
+        },
+        {
+          "weight": "1",
+          "valuekey": "alkohol",
+          "operator": "0",
+          "value": "100",
+          "valuetype": "0"
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Habe Verstanden!",
+          "message": "Dann muss wohl jemand neues Bier holen!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "alkohol",
+          "value": "0",
+          "valuetype": "0",
+          "operator": "4"
+        }
+      ]
+    },
+    {
+      "name": "Drogensensation",
+      "description": "Einnahmen der Drogenlabore steigen um 50%",
+      "message": "Es ist DAS neue heisse Produkt auf dem Drogenmarkt und es kommt nur von DEINER Raumstation. Du bist für kurze Zeit Marktführer und vertickst das Zeug schneller als das es Alienjunkies überhaupt einnehmen können. Die Einnahmen der Drogenlaboren für heute gesteigert.",
+      "weight": "1",
+      "requirements": [
+        {
+          "weight": "0",
+          "valuekey": "labor",
+          "operator": "2",
+          "value": "",
+          "valuetype": "3"
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Wie geil!",
+          "message": "Tja, meine Leute haben's halt drauf.",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##EINNAHMEN LABOR##",
+          "value": "1,5",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+        {
+      "name": "Infektion",
+      "description": "Kein Einnahmen in den nächsten zwei Tagen",
+      "message": "Eine Krankheit sucht deine Raumstation heim. Sie ist nicht tödlich, setzt aber 2 Tage sämtliche Mitarbeiter außer Gefecht. Du machst zwei Tage keine Einnahmen. Ohje, das wird Don gar nicht erfreuen..",
+      "weight": "1",
+      "requirements": [
+        {
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Och nöööö",
+          "message": "Wieder Hände waschen vergessen, was?",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##EINNAHMEN GENERELL##",
+          "value": "0",
+          "valuetype": "0",
+          "operator": "0"
+        }
+      ]
+    },
+        {
+      "name": "Dons_Geburtstag",
+      "description": "Alle Einnahmen steigen um 20%",
+      "message": "Don Fagiolo hat Geburtstag und ist zu Besuch da. Jeder deiner Mitarbeiter arbeitet einen Tag plötzlich viel motivierter und schneller! Der Don findet deine Arbeit hervorragend, Alfredo!",
+      "weight": "1",
+      "requirements": [       
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Herzlichen Glückwunsch oder so..",
+          "message": "Man soll Feste feiern wie sie fallen!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##EINNAHMEN GENERELL##",
+          "value": "1,2",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+        {
+      "name": "Feiertag",
+      "description": "10 % mehr Uron Lohn an diesem Tag",
+      "message": "Endlich zahlt sich die Arbeit aus. Deine Mitarbeiter bekommen heute an diesem intergalaktischem Feiertag mehr Geld!",
+      "weight": "2",
+      "requirements": [       
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Faule Bande!",
+          "message": "Naja, wenigstens arbeiten sie trotzdem.",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##EINNAHMEN GENERELL##",
+          "value": "0,9",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Sicherheitswartung",
+      "description": "-10% Uronstand, keine Tageseinnahmen",
+      "message": "Damit auf deiner Raumstation alles rund läuft, werden die Techniker heute alle Stationen durchchecken und Reparaturen vornehmen. Es wird dich eine Tageseinnahme kosten.",
+      "weight": "1",
+      "requirements": [       
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Wartung muss sein",
+          "message": "Können die das nicht wann anders machen?",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##EINNAHMEN GENERELL##",
+          "value": "0",
+          "valuetype": "0",
+          "operator": "4"
+        },
+        {
+          "valuekey": "uron",
+          "value": "0,9",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    }
+  ]
+}

@@ -4,17 +4,15 @@ var valuekey # Key of the value that is affected
 var value # The Value that is affected
 var valuetype = 0 # The valuetype, 0 is ressources, 1 is stationstats, 2 is modules (build), 3 is other kind of value
 var operator = 0 # The kind of operator that will be, 0 is add to value, 1 is substract to value, 2 divide value, 3 is multiplie value, 4 is replace value
-var message = "" # The message that will be returned
 ## ToDo: Add a Var that determines the probability of that outcome
 
 
-func _init(valuekey, value, valuetype, operator, message):
+func _init(valuekey, value, valuetype, operator):
 	## ToDo: check if init is the correct constructor
 	self.valuekey = valuekey
-	self.value = value
-	self.valuetype = valuetype
-	self.operator = operator
-	self.message = message
+	self.value = int(value)
+	self.valuetype = int(valuetype)
+	self.operator = int(operator)
 	pass
 
 func _ready():
@@ -44,7 +42,7 @@ func fullfill():
 				allvalues[valuekey] += value
 			elif (operator == 1):
 				allvalues[valuekey] -= value
-			elif (opertor == 2):
+			elif (operator == 2):
 				allvalues[valuekey] /= value
 			elif (operator == 3):
 				allvalues[valuekey] *= value
@@ -59,7 +57,7 @@ func fullfill():
 				allvalues[valuekey] += value
 			elif (operator == 1):
 				allvalues[valuekey] -= value
-			elif (opertor == 2):
+			elif (operator == 2):
 				allvalues[valuekey] /= value
 			elif (operator == 3):
 				allvalues[valuekey] *= value
@@ -71,5 +69,5 @@ func fullfill():
 	elif (valuetype == 3):
 		##ToDo: Add List of other values into the singleton object
 		pass
-	global.add_message(message)
+	#global.add_message(message)
 	pass

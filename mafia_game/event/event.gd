@@ -6,7 +6,7 @@ var desc = "Generic description" # Text of the Event
 var message = "Generic Message" # Message that will be post if the Event if fullfilled
 var weight = 1 #The weight of the Event
 #List of substuff
-var requierements = [] # Array of requierements (as Requierment Object) that must fullfilt to trigger this event
+var requirements = [] # Array of requirements (as Requierment Object) that must fullfilt to trigger this event
 var outcomes = [] # Array of Outcomes (as Outcome Object) that the Event will trigger
 var eventOptions = [] # Array of Options (as EventOption Object) if the player can choose some options
 # Internal vars
@@ -14,26 +14,26 @@ var isPossible = true # Bool if the Event is possible
 var hasOptions = false #Bool that indicates if an Event have possible options
 var hasOutcomes = false #Bool that indicates if an Event have any outcomes
 
-func _init(name, desc, message, weight, requierements, outcomes, eventOptions):
+func _init(name, desc, message, weight, requirements, outcomes, eventOptions):
 	self.name = name
 	self.desc = desc
 	self.message = message
-	self.weight = weight
+	self.weight = int(weight)
 	self.eventOptions = eventOptions
-	self.requierements = requierements
+	self.requirements = requirements
 	#self.weightmodifiers = weightmodifiers
 	self.outcomes = outcomes
 	if (eventOptions != null && eventOptions.size()>0):
 		hasOptions = true
-	# Check if the requierements for the Event are fullfilled
-	if (eventOptions != null && requierements.size()>0):
-		for requierement in requierements:
-			if(not requierement.check()):
+	# Check if the requirements for the Event are fullfilled
+	if (eventOptions != null && requirements.size()>0):
+		for requirement in requirements:
+			if(not requirement.check()):
 				isPossible = false
 				break
 			else:
-				weight = weight + requierement.get_weight()
-		weight = int(weight / requierements.size())
+				weight = weight + requirement.get_weight()
+		#weight = int(weight / requirements.size())
 	# Modify the weight of the Event
 
 	if (outcomes != null && outcomes.size()>0):
@@ -49,7 +49,7 @@ func get_weight():
 	return weight
 
 func is_possible():
-	# Returns bool that is true than all requierements are fulfilled
+	# Returns bool that is true than all s are fulfilled
 	return isPossible
 
 func fullfill():
@@ -59,3 +59,29 @@ func fullfill():
 		for outcome in outcomes:
 			outcome.fullfill()
 	global.add_message(message)
+
+func to_string():
+	var result = "Name:"+name+"\n"
+	result += "Desc:"+desc+"\n"
+	result += "Message:"+message+"\n"
+	result += "Weight:"+str(weight)+"\n"
+	result += "Requirements:\n"
+	var i = 0
+	for req in requirements:
+		result += str(i)+":\n"
+		result += "Value:"+str(req["value"])+"\n"
+		i += 1
+	result += "Outcomes:\n"
+	i=0
+	for out in outcomes:
+		result += str(i)+":\n"
+		result += "Value:"+str(out["value"])+"\n"
+		i += 1
+	result += "Options:\n"
+	i=0
+	for opt in eventOptions:
+		result += str(i)+":\n"
+		result += "Value:"+opt["message"]+"\n"
+		i += 1
+	return result
+	

@@ -14,9 +14,9 @@ func _init(valuekey, value, valuetype, operator, weight):
 	## ToDo: check if init is the correct constructor
 	self.valuekey = valuekey
 	self.value = value
-	self.valuetype = valuetype
-	self.operator = operator
-	self.weight = weight
+	self.valuetype = int(valuetype)
+	self.operator = int(operator)
+	self.weight = int(weight)
 	pass
 
 func _ready():
