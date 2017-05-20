@@ -151,7 +151,7 @@ func get_build_time():
 
 ### Cycle Functions ###
 
-func register_modul():
+func register_module():
 	return global.add_module(self)
 
 func on_cycle_change(modifications, cycle):
