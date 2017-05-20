@@ -5,6 +5,7 @@ var value # The Value that is affected
 var valuetype = 0 # The valuetype, 0 is ressources, 1 is stationstats, 2 is modules (build), 3 is other kind of value
 var operator = 0 # The kind of operator that will be, 0 is add to value, 1 is substract to value, 2 divide value, 3 is multiplie value, 4 is replace value
 var message = "" # The message that will be returned
+## ToDo: Add a Var that determines the probability of that outcome
 
 
 func _init(valuekey, value, valuetype, operator, message):

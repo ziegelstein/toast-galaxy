@@ -18,7 +18,17 @@ func _ready():
 
 func get_resources():
 	return resources
+
+func set_resource(key, value):
+	if resources.has(key):
+		resources[key] = value
+		return true
+	return false
 	
+func add_resource(key, value):
+	resources[key] = value
+	pass
+
 func get_resource(Key):
 	if (resources.has(Key)):
 		return resources[Key]
@@ -31,6 +41,7 @@ func get_station_stat(Key):
 	if (station_stats.has(Key)):
 		return station_stats[Key]
 	return null #Should throw an error
+
 
 # Some message functions for central logging and message sending
 
@@ -71,6 +82,7 @@ func cycle_change():
 	for mod in modules:
 		if(mod.has_method("daily")):
 			mod.daily()
+	##ToDo Generate some Day variables, the general activity for example
 	##ToDo Add a "Draw an Event"
 	##ToDo Think about other stuff that happen around cycle change
 	pass

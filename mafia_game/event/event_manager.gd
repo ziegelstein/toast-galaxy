@@ -3,6 +3,12 @@ extends Node
 var Events = [] # Array of all Events
 var preparedEvents = [] # Array of all Events that are possible (which requierements are fulfilled) and which is weighted 
 
+var event_class = preload("res://event/event.gd")
+var event_requirement_class = preload("res://event/event_requierement.gd")
+
+func _init():
+	parse_event_file("res://data/events.json")
+
 func _ready():
 	pass
 
@@ -16,15 +22,14 @@ func create_event_requierement(valuekey, value, valuetype, operator):
 	##ToDo
 	pass
 
-func create_event_weight_modifier():
-	##ToDo
-	pass
 	
-func create_event_option():
+func create_event_option(name, desc, message, outcomes, requierements):
+	#vars: outcomes = array of outcomes, requierements = array of requierements, name = string, desc = string, message = string
 	##ToDo
 	pass
 
-func create_event():
+func create_event(name, desc, message, requierements, outcomes, eventOptions):
+	#vars: name = string, desc = string, message = string, requierements = array of requierement, outcomes = array of outcomes, eventOptions = array of eventOptions
 	##ToDo
 	pass
 
@@ -56,3 +61,27 @@ func get_erepared_event():
 	#Return a prepared Event
 	prepare_events()
 	return Events[rand_range(1.0,Events.size())]
+
+func parse_event_file(path):
+	var file = File.new()
+	file.open(path, file.READ)
+	var events_dict = {}
+	var json = file.get_as_text()
+	events_dict.parse_json(json)
+	var event
+	for ev in events_dict["events"]:
+		event = parse_event(ev)
+
+# Nimmt Event-Daten und gibt daraus erstelltes Event-Objekt zurück
+func parse_event(event_data):
+	# TODO Outcomes und Options hinzufügen
+	var new_event = event_class.new(event_data["name"], event_data["description"], event_data["message"], event_data["weight"], parse_requirements(event_data["requirements"]), null, null, null)
+	Events.append(new_event)
+
+func parse_requirements(requirements_data):
+	var new_req
+	var req_array = []
+	for req in requirements_data:
+		new_req = event_requirement_class.new(req["valuekey"], req["value"], req["valuetype"], req["operator"], req["weight"]) 
+		req_array.append(new_req)
+	return req_array

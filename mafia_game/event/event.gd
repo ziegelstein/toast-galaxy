@@ -1,42 +1,43 @@
 extends Node
 
+# Constructor vars
 var name = "Generic Event" # Name of the Event
 var desc = "Generic description" # Text of the Event
 var message = "Generic Message" # Message that will be post if the Event if fullfilled
+var weight = 1 #The weight of the Event
+#List of substuff
 var requierements = [] # Array of requierements (as Requierment Object) that must fullfilt to trigger this event
-var weightmodifiers = [] # Array of Weight Modificators (as WeightModifier Object), that will modificate the probability of the Event
 var outcomes = [] # Array of Outcomes (as Outcome Object) that the Event will trigger
 var eventOptions = [] # Array of Options (as EventOption Object) if the player can choose some options
+# Internal vars
 var isPossible = true # Bool if the Event is possible
-var weight = 1 #The weight of the Event
 var hasOptions = false #Bool that indicates if an Event have possible options
 var hasOutcomes = false #Bool that indicates if an Event have any outcomes
 
-func _init(name, desc, message, requierements, weightmodifiers, outcomes, eventOptions):
+func _init(name, desc, message, weight, requierements, outcomes, eventOptions):
 	self.name = name
 	self.desc = desc
 	self.message = message
+	self.weight = weight
 	self.eventOptions = eventOptions
 	self.requierements = requirements
-	self.weightmodifiers = weightmodifiers
+	self.requierements = requierements
+	#self.weightmodifiers = weightmodifiers
 	self.outcomes = outcomes
-	if (not eventOptions.empty()):
+	if (eventOptions != null && eventOptions.size()>0):
 		hasOptions = true
 	# Check if the requierements for the Event are fullfilled
-	if (not requierements.empty()):
+	if (eventOptions != null && requierements.size()>0):
 		for requierement in requierements:
 			if(not requierement.check()):
 				isPossible = false
 				break
+			else:
+				weight = weight + requierement.get_weight()
+		weight = int(weight / requierements.size())
 	# Modify the weight of the Event
-	if (not weightmodifiers.empty()):
-		for weightmodifier in weightmodifiers:
-			# Adds the weight of every modifier
-			weight = weight + weightmodifier.get_weight()
-		# Create the average of all modifiers
-		weight = weight / weightmodifiers.size()
 
-	if (not outcomes.empty()):
+	if (outcomes != null && outcomes.size()>0):
 		hasOutcomes = true
 	pass
 
