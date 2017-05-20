@@ -514,6 +514,129 @@
           "operator": "3"
         }
       ]
+    },
+    {
+      "name": "Mannschaftsverteilung",
+      "description": "+10% Ressourcenoutput",
+      "message": "Deine Vorarbeiter nehmen sich die Zeit deine Mitarbeiter besser einzuschätzen und setzen sie an Postitionen ein, die ihnen viel besser liegen. Deine Produktion läuft nun einiges besser!",
+      "weight": "1",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Ganz tolle Idee, aber...",
+          "message": "WARUM NICHT GLEICH SO?!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##RESSOURCENPRODUKTION GENERELL##",
+          "value": "1,1",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Wachstumsbeschleuniger",
+      "description": "Erhöht Produktion der hydroponischen Farm um 50%",
+      "message": "Mit Hilfe alter Erden-Solartechnologie wachsen deine Spaceweed-Pflanzen schneller und ihre Wirkung ist nochmal geiler!",
+      "weight": "1",
+      "requirements": [
+        {
+          "weight": "0",
+          "valuekey": "bar",
+          "operator": "2",
+          "value": "",
+          "valuetype": "3"
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Wow!",
+          "message": "Hätte nicht gedacht, dass die Dinger noch funktionieren..",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##RESSOURCENPRODUKTION HYDRO##",
+          "value": "1,5",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Steuerberater",
+      "description": "+10% Uron",
+      "message": "Keine Ahnung warum, aber plötzlich stand ein Steuerberater vor deinem Büro. Nachdem er deine Unterlagen durchgegangen ist, scheint er dir ein paar Steuervorteile aufzuzeigen. Sachen gibts...",
+      "weight": "1",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Meine Herren..",
+          "message": "Der hat schon was drauf, der Mann.",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "uron",
+          "value": "1,1",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Ziegelstein",
+      "description": "+200 Uron",
+      "message": "Einige der Wohnräume wurden insgeheim mit Ziegelsteinen verklinkert. Endlich mal Heizkosten sparen!",
+      "weight": "1",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Ziegestein",
+          "message": "Schade, dass nicht die ganze Station geziegelt ist.",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "uron",
+          "value": "200",
+          "valuetype": "0",
+          "operator": "0"
+        }
+      ]
+    },
+    {
+      "name": "Diskussionsausbruch",
+      "description": "-50% Ressourcenoutput",
+      "message": "Plötzlich ist es laut in den Gängen und Modulen. Lauter als je zuvor: Deine Mitarbeiter diskutieren und diskutieren... und machen ihre Arbeit nicht mehr. Jedes mal, kurz vor Ende der Diskussion, gibt es immer den Einen, der immer einen weiteren Diskussionsgrund nachwirft, womit alles von vorn los geht...",
+      "weight": "1",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Ach Hergottszeiten!",
+          "message": "ICH WILL MEINE RUHE!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##RESSOURCENPRODUKTION GENERELL##",
+          "value": "0,5",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
     }
   ]
 }
