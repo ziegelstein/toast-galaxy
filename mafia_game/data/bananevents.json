@@ -246,6 +246,126 @@
           "operator": "3"
         }
       ]
+    },
+    {
+      "name": "Polizeibesuch",
+      "description": "-30% Uron",
+      "message": "Verdammt, deine Raumstation bekommt Besuch von der Space-Police! Du musst sie schmieren, damit sie deine illegalen Geschäfte nicht verraten.",
+      "weight": "1",
+      "requirements": [],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Mist!",
+          "message": "Ich brauch doch das Geld noch..!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "uron",
+          "value": "0,70",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Gesponsored",
+      "description": "Erhöhte Ressourcengeneration",
+      "message": "Deiner Raumstation wurde eine ganze Ladung Space-Pops geschenkt, die nicht durch den Space-Zoll gekommen sind. Wie nett! Deine Mitarbeiter sind glücklicher und arbeiten unter epileptischen Zuckerschock viel schneller",
+      "weight": "1",
+      "requirements": [
+        {}
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Ich kann kaum genug davon bekommen!",
+          "message": "BLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBL!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "##RESSOURCEN GENERELL##",
+          "value": "1,25",
+          "valuetype": "0",
+          "operator": "3"
+        }
+      ]
+    },
+    {
+      "name": "Käferbefall_in_der_hydroponischen_Farm",
+      "description": "Nichts. Heh.",
+      "message": "Unsere Spaceweed-Plantagen wurden von Käfern befallen! Allerdings ist das Zeug so gut, dass die Käfer schon nach kürzester Zeit total high auf dem Rücken liegen. Den Rest erledigt dann der Staubsauger.",
+      "weight": "1",
+      "requirements": [
+        {
+          "weight": "0",
+          "valuekey": "hydroponics",
+          "operator": "2",
+          "value": "",
+          "valuetype": "3"
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Immerhin den Käfern geht es gut.",
+          "message": "Okay",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": []
+    },
+    {
+      "name": "Guardians",
+      "description": "Nichts.",
+      "message": "Ein total irrer Waschbär verprügelt deine Sicherheitsleute, nachdem er in der Bar sich 16 Bier gegönnt hat. Hausverbot für Rocket!",
+      "weight": "1",
+      "requirements": [
+        {
+          "weight": "0",
+          "valuekey": "security",
+          "operator": "2",
+          "value": "",
+          "valuetype": "3"
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Hoffentlich sind alle gegen Tollwut geimpft.",
+          "message": "Okay",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": []
+    },
+    {
+      "name": "Gravitationsausfall",
+      "description": "Nichts.",
+      "message": "Heute nichts besonderes, außer ein kleiner Gravitationsausfall im Bordell. Witzig, aber ein wenig unpraktisch...",
+      "weight": "1",
+      "requirements": [
+        {
+          "weight": "0",
+          "valuekey": "bar",
+          "operator": "2",
+          "value": "",
+          "valuetype": "3"
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Von wegen Ausfall..",
+          "message": "Das ist kein Fehler, sondern ein Feature!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": []
     }
   ]
 }
