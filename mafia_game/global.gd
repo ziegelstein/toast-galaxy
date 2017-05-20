@@ -41,6 +41,14 @@ func get_station_stat(Key):
 	if (station_stats.has(Key)):
 		return station_stats[Key]
 	return null #Should throw an error
+	
+func add_module(module):
+	if (modules.has(module) == false):
+		modules.append(module)
+		return true
+	add_message("Fehler: Dupliziertes Modul!")
+	return false
+
 
 
 # Some message functions for central logging and message sending
@@ -61,9 +69,6 @@ func add_messages(messagearray):
 		for message in messagearray:
 			messages.append(message)
 	pass
-
-func add_module(module):
-	modules.append(module)
 
 # Functions for the cycle change:
 
