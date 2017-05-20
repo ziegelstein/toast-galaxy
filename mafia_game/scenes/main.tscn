@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
-[ext_resource path="res://gui/changeable_module_property.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/stats_display.gd" type="Script" id=2]
+[ext_resource path="res://gui/resources.gd" type="Script" id=3]
+[ext_resource path="res://gui/changeable_module_property.tscn" type="PackedScene" id=4]
 
-[node name="Control" type="Control"]
+[node name="main" type="Control"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -21,53 +23,13 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
+margin/left = 10.0
 margin/top = 0.0
-margin/right = 1024.0
+margin/right = 1014.0
 margin/bottom = 40.0
 custom_constants/separation = 20
 alignment = 2
-
-[node name="visitor_label" type="Label" parent="stats"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 798.0
-margin/top = 13.0
-margin/right = 940.0
-margin/bottom = 27.0
-text = "124 tägliche Besucher"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="VSeparator" type="VSeparator" parent="stats"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 960.0
-margin/top = 0.0
-margin/right = 963.0
-margin/bottom = 40.0
-
-[node name="meta_cycle_label" type="Label" parent="stats"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 983.0
-margin/top = 13.0
-margin/right = 1024.0
-margin/bottom = 27.0
-text = "Tag 41"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+script/script = ExtResource( 2 )
 
 [node name="left_panel" type="VBoxContainer" parent="."]
 
@@ -77,7 +39,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 11.0
 margin/top = 56.0
-margin/right = 178.0
+margin/right = 163.0
 margin/bottom = 547.0
 alignment = 0
 
@@ -89,123 +51,10 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 167.0
+margin/right = 152.0
 margin/bottom = 240.0
 alignment = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="left_panel/resources"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 167.0
-margin/bottom = 14.0
-alignment = 0
-
-[node name="Label" type="Label" parent="left_panel/resources/HBoxContainer"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 71.0
-margin/bottom = 14.0
-text = "1.203 Uron"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="TextureFrame" type="TextureFrame" parent="left_panel/resources/HBoxContainer"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 75.0
-margin/top = 0.0
-margin/right = 75.0
-margin/bottom = 14.0
-stretch_mode = 3
-
-[node name="Label 3" type="Label" parent="left_panel/resources"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 18.0
-margin/right = 167.0
-margin/bottom = 32.0
-text = "85/100 Energy"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label 2" type="Label" parent="left_panel/resources"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 36.0
-margin/right = 167.0
-margin/bottom = 50.0
-text = "12/13 Aliensklaven"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label 4" type="Label" parent="left_panel/resources"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 54.0
-margin/right = 167.0
-margin/bottom = 68.0
-text = "15 / 24 Spaceweed"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label 5" type="Label" parent="left_panel/resources"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 72.0
-margin/right = 167.0
-margin/bottom = 86.0
-text = "8/10 Lagerraum"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label 6" type="Label" parent="left_panel/resources"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 90.0
-margin/right = 167.0
-margin/bottom = 104.0
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+script/script = ExtResource( 3 )
 
 [node name="HSeparator" type="HSeparator" parent="left_panel"]
 
@@ -215,7 +64,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 244.0
-margin/right = 167.0
+margin/right = 152.0
 margin/bottom = 247.0
 
 [node name="message_log" type="RichTextLabel" parent="left_panel"]
@@ -226,7 +75,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 251.0
-margin/right = 167.0
+margin/right = 152.0
 margin/bottom = 491.0
 bbcode/enabled = false
 bbcode/bbcode = ""
@@ -312,9 +161,9 @@ margin/right = 169.0
 margin/bottom = 113.0
 alignment = 0
 
-[node name="property" parent="right_panel/module_properties" instance=ExtResource( 2 )]
+[node name="property" parent="right_panel/module_properties" instance=ExtResource( 4 )]
 
-[node name="property 2" parent="right_panel/module_properties" instance=ExtResource( 2 )]
+[node name="property 2" parent="right_panel/module_properties" instance=ExtResource( 4 )]
 
 margin/top = 46.0
 margin/bottom = 88.0

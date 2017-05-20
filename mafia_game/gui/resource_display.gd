@@ -13,7 +13,7 @@ func get_resource_name():
 	return resource_name
 
 func update():
-	var resource_count = global.get_resource(resource_name)
+	var resource_count = global.get_resource(resource_name).get_value()
 	if(resource_count == null):
 		resource_count = 0
 	var resource_in_use_count = calc_resource_in_use_count()
