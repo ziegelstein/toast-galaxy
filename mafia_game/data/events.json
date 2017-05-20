@@ -3,6 +3,44 @@
     {
       "name": "Massenschlaegerei_in_Bar",
       "description": "Reduziert Einnahmen von ###BAR### um 90 %, Setzt Ressource Bier auf null, zieht von random Stationen ein paar Mitarbeiter ab",
+      "message": "Oh nein! In der Bar gab es eine große Rauferei, wobei einige Mitarbeiter verletzt und der heilige Biervorrat zerstört wurden. :O Die Bar wird in naher Zukunft wohl keine großen Einnahmen mehr generieren. Zudem sind deine Mitarbeiter ausser Gefecht gesetzt.",
+      "weight": "1",
+      "requirements": [
+        {
+          "weight": "0",
+          "valuekey": "bar",
+          "operator": "2",
+          "value": "",
+          "valuetype": "3"
+        },
+        {
+          "weight": "1",
+          "valuekey": "alkohol",
+          "operator": "0",
+          "value": "100",
+          "valuetype": "0"
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Habe Verstanden!",
+          "message": "Dann muss wohl jemand neues Bier holen!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "alkohol",
+          "value": "0",
+          "valuetype": "0",
+          "operator": "4"
+        }
+      ]
+    },
+    {
+      "name": "Massenschlaegerei_in_Bar",
+      "description": "Reduziert Einnahmen von ###BAR### um 90 %, Setzt Ressource Bier auf null, zieht von random Stationen ein paar Mitarbeiter ab",
       "message": "Oh nein! In der Bar gab es eine große Rauferei und dabei wurden einige Mitarbeiter verletzt und der heilige Biervorrat zerstört :O Diese Bar wird in naher Zukunft wohl keine großen  Einnahmen mehr generieren und deine Mitarbeiter nicht arbeiten können",
       "weight": "1",
       "requirements": [
@@ -19,6 +57,22 @@
           "operator": "0",
           "value": "100",
           "valuetype": "0"
+        }
+      ],
+      "options": [
+        {
+          "name": "OK",
+          "description": "Habe Verstanden!",
+          "message": "Dann muss wohl jemand neues Bier holen!",
+          "outcome": "0"
+        }
+      ],
+      "outcomes": [
+        {
+          "valuekey": "alkohol",
+          "value": "0",
+          "valuetype": "0",
+          "operator": "4"
         }
       ]
     }
