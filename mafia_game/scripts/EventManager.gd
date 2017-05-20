@@ -6,11 +6,13 @@ var preparedEvents = [] # Array of all Events that are possible (which requierem
 func _ready():
 	pass
 
-func create_event_outcome():
+func create_event_outcome(valuekey, value, valuetype, operator, message):
+	#vars: valuekey = str of the key, value = var of the value, valuetype = int of the type of the value, operator = int of operator, message = str of the message
 	##ToDo
 	pass
 	
-func create_event_requierement():
+func create_event_requierement(valuekey, value, valuetype, operator):
+	#vars: valuekey = str of the key, value = var of the value, valuetype = int of the type of the value, operator = int of the operator
 	##ToDo
 	pass
 

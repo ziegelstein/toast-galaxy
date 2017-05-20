@@ -12,6 +12,7 @@ var buildmaterials = { none = "" }
 
 
 func _init(name, id):
+	self.name = name
 	self.id = id
 	pass
 
@@ -19,6 +20,10 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
-	
+
+func add_submodule():
+	pass
+
 func on_cycle_change(modifications, cycle):
+	#Do stuff
 	return true
