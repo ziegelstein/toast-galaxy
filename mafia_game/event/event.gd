@@ -21,7 +21,6 @@ func _init(name, desc, message, weight, requierements, outcomes, eventOptions):
 	self.weight = weight
 	self.eventOptions = eventOptions
 	self.requierements = requirements
-	self.weightmodifiers = weightmodifiers
 	self.outcomes = outcomes
 	if (not eventOptions.empty()):
 		hasOptions = true
