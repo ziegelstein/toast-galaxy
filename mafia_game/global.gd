@@ -13,9 +13,11 @@ var metacycles = 0 #Number of "Months"
 var resource_class = preload("res://resources/resource.gd")
 
 var PATH_RESOURCES = "res://data/resources.csv"
+var PATH_MODULES = "res://data/modules.csv"
 
 func _init():
 	init_resources(PATH_RESOURCES)
+	init_modules(PATH_MODULES)
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -122,7 +124,7 @@ func init_resources(path):
 	var i
 	var tmp
 	while !file.eof_reached():
-		line = file.get_csv_line()
+		line = file.get_csv_line(";")
 		if(line.size()==2):
 			add_resource(line[0], line[1])
 		elif(line.size()==1):
@@ -133,3 +135,7 @@ func init_resources(path):
 			while i<line.size():
 				tmp.add_property(line[i],line[i+1])
 				i += 2
+
+func init_modules(path):
+	var file = File.new()
+	file.open(PATH_RESOURCES, file.READ)
