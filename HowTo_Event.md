@@ -18,7 +18,7 @@ Ein Event besteht aus einigen Grundvariablen, einigen Unterkomponenten und einig
 - *requierements* Eine Liste aller Bediengungen, die Erfüllt sein müssen, damit das Element "gezogen" werden kann. Kann leer bleiben wenn es keine Bediengungen gibt. Mehr Informationen zu [requierements](#requierements).
 - *outcomes* Eine Liste aller Folgen, die durch das Event erzeugt werden. Kann leer bleiben, wenn das Event keine Folgen hat. Wird nicht aktiviert wenn das Event über **Optionen** verfügt. Mehr Informationen zu [outcomes](outcomes).
 - *eventOptions* Eine Liste aller Auswahlmöglichkeiten, die in diesem Event möglich sind. Kann Leer bleiben wenn es keine Optionen gibt. Mehr Informationen zu [Optionen](#Options).
-- *weight* Das Gewicht eines Events, bestimmt wie oft ein Event in der Liste aller verfügbaren Events vorkommt (ist das weight=1 kommt es einmal in der Liste vor, ist das weight = 2, kommt es zweimal vor usw.)
+- **weight** Das Gewicht eines Events, bestimmt wie oft ein Event in der Liste aller verfügbaren Events vorkommt (ist das weight=1 kommt es einmal in der Liste vor, ist das weight = 2, kommt es zweimal vor usw.)
 
 ##requierements
 Ein Requierement ist eine Bedingung die Erfüllt sein muss damit ein Event überhaupt in die Liste der möglichen Events kommt. Ein Requierment kann Grundsätzlich (nahezu) alle Variablen abfragen, die im Globalen "Singleton" gespeichert werden. Ein Requierement hat folgende Variablen, die (fast immer) angegeben werden müssen:
