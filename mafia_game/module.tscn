@@ -2,4 +2,6 @@
 
 [node name="Node" type="Node"]
 
+[node name="Sprite" type="Sprite" parent="."]
+
 
