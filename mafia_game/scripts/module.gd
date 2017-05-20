@@ -17,6 +17,8 @@ var buildmaterials = [] #An Array of Arrays style [[str,int]] ->[["key",value], 
 var build_time = 1 #The amount of time that is needed to build that module
 var remaining_build_time = build_time
 var is_build = false
+var will_destroyed = false
+var destroy_counter = 0
 
 # Position vars
 var position = 0 # Position of the module on the space station
@@ -123,7 +125,18 @@ func on_build(position, pos_vector, rotation):
 	return false
 	
 func destroy_module(cycles):
-	global.set_station_stat
+	# Destroy the module
+	if (cycles <= 0):
+		global.remove_module(self)
+		global.add_message("Modul "+ name +" wurde zerstört.")
+	elif will_destroyed == false:
+		will_destroyed = true
+		destroy_counter = cycles
+	else:
+		global.add_message("Modul " + name +" wird bereits zerstört")
+		pass
+	global.set_station_stat("Geld", (int(buildprice / 5))) # returns the fitht of the module price back to the players bank account if the module gets destroyed
+	queue_free()
 	pass
 	
 func set_is_build(boolean):
@@ -143,6 +156,10 @@ func register_modul():
 func on_cycle_change(modifications, cycle):
 	if (is_build):
 		global.add_message(cycle_logic(modifications, cycle))
+		if (will_destroyed):
+			destroy_counter -= 1
+			if (destroy_counter <= 0):
+				destroy_module(destroy_counter)
 		pass
 	# If the building process is still in work, the counter of the remaing decreases by one, if the counter fall to 0 the module is build
 	else:

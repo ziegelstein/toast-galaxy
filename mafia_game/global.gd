@@ -58,6 +58,10 @@ func add_module(module):
 		return true
 	add_message("Fehler: Dupliziertes Modul!")
 	return false
+	
+func remove_module(module):
+	modules.remove(module)
+	pass
 
 
 
