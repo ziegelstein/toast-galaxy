@@ -12,7 +12,7 @@ Das Event ist die Grundlage des Eventsystems, jeden Cyclechange (Tages/Rundenwec
 Ein Event besteht aus einigen Grundvariablen, einigen Unterkomponenten und einigen internen Variablen (Die hier nicht weiter erwähnt werden).
 ### Eventvariablen
 - **name** Der Name des Events, sollte nach Möglichkeit einzig artig sein, und wird immer benötigt.
-- **desc** Die Beschreibung oder Geschichte des Events, ein einfacher String (unformatierter Text). Wird immer benötigt.
+- **description** Die Beschreibung oder Geschichte des Events, ein einfacher String (unformatierter Text). Wird immer benötigt.
 - **message** Eine Nachricht die geschrieben wird sobald das Event "beendet" ist.
 ### Eventkomponenten
 - *requierements* Eine Liste aller Bediengungen, die Erfüllt sein müssen, damit das Element "gezogen" werden kann. Kann leer bleiben wenn es keine Bediengungen gibt. Mehr Informationen zu [requierements](#requierements).
@@ -45,5 +45,5 @@ Eine Option ist eine Wahlmöglichkeit eines Events. Sollte keine der Wahlmöglic
 - *outcomes* Liste aller [Outcomes](#outcomes), die vollbracht werden, wenn diese Option gewählt wird.
 - *requierments* Liste aller [Bedingungen](#requierments), die erfüllt sein müssen, damit diese Option überhaupt auswählbar ist.
 - **name** Name der Option, sollte einzigartig sein
-- **desc** Beschreibung der Option, der Text der Angezeigt wird, um die Option textlich darzustellen.
+- **description** Beschreibung der Option, der Text der Angezeigt wird, um die Option textlich darzustellen.
 - **message** Nachricht, die angezeigt wird, wenn diese Option gewählt wird.
