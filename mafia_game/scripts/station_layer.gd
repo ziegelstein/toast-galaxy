@@ -192,7 +192,3 @@ func get_sprite():
 	
 func get_layer():
 	return layer
-	
-func replace_empty_positions():
-	# Create empty space sprites on the empty positions of the space station
-	pass
