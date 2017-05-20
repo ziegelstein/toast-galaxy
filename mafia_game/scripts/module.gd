@@ -11,6 +11,10 @@ var submodules = [] # Array of Submodules
 var module_informations = {}
 var module_settings = {}
 
+# Input / Output vars
+var module_needs = {}
+var module_production = {}
+
 #Building Variable
 var buildprice = 0 # Price in Uron
 var buildmaterials = [] #An Array of Arrays style [[str,int]] ->[["key",value], ["maschinen", 5], ["Waffen", 3]]
@@ -29,7 +33,7 @@ var pos_vector = Vector2(0,0)
 var rotation = deg2rad(0) # The rotation in degree
 var mySprite
 
-### Constructing Functions ###
+### Constructor Functions ###
 func _init(modname, id):
 	self.modname = modname
 	self.id = id
@@ -50,10 +54,15 @@ func set_graph():
 	else: mySprite.show()
 
 func set_module_informations():
+	# set possible information of the module that shall be displayed - warning: includes lot of black vodoo magic!
+	# This part checks if the module is already built. If not, it displays some ressources that will be used to build that module
 	if (remaining_build_time != 0):
 		module_informations["Bauzeit"] = remaining_build_time
 	if (is_build == false):
 		module_informations["Baukosten"] = buildprice
+		if (buildmaterials.size() != 0):
+			for key in buildmaterials.keys():
+				module_informations[key] = buildmaterials[key]
 		
 	pass
 
@@ -77,6 +86,10 @@ func return_module_settings(module_settings):
 	self.module_settings = module_settings
 	#add Logic
 	pass
+	
+func hide_module():
+	is_visible = false
+	mySprite.hide()
 	
 
 ### General Getter and Setter ###

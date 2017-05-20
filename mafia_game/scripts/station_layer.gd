@@ -164,6 +164,9 @@ func update_sprite():
 		mySprite.show()
 	else:
 		mySprite.hide()
+		# Hide all modules of that layer
+		for module_position in modul_positions:
+			module_postion[1].hide_module()
 	pass
 
 func get_module_pos(module):
