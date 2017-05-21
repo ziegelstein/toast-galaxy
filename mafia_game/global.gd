@@ -178,3 +178,14 @@ func get_line_array(path):
 	while !file.eof_reached():
 		result.append(file.get_csv_line(";"))
 	return result
+	
+func calc_resource_in_use_count(resource_name):
+	var sum = 0
+	var modules = get_modules()
+	for i in range(modules.size()):
+		var module = modules[i]
+		var settings = module.get_module_settings()
+		for key in settings:
+			if(key == resource_name):
+				sum += settings[key]
+	return sum
