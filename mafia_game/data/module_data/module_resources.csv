@@ -1,3 +1,10 @@
 # Contain all Ressources that a module will manipulate at a cycle change. First Entry is the id, then the ressources(Key;Value) KEINE LEERZEILE! KEINE UMLAUTE!
 id;0;Strom;-10
 id;1;Treibstoff;-5;Strom;30
+id;2;Strom;-10
+id;3;Strom;-10
+id;4;Strom;-10
+id;5;Strom;-10
+id;6;Strom;-10
+id;7;Strom;-10
+id;8;Strom;-10
