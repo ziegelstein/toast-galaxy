@@ -108,10 +108,10 @@ func cycle_change():
 		add_message("Der Don hat sich seinen Anteil genommen")
 		##ToDo Add some more fancy interaction
 		station_stats["Geld"] = station_stats["Geld"] - 1000
-	##ToDo Add a Loop that calls every "daily module methode"
+	##ToDo Add a Loop that calls every "on_cycle_change module methode"
 	for mod in modules:
-		if(mod.has_method("daily")):
-			mod.daily()
+		if(mod.has_method("on_cycle_change")):
+			mod.on_cycle_change()
 	##ToDo Generate some Day variables, the general activity for example
 	##ToDo Add a "Draw an Event"
 	##ToDo Think about other stuff that happen around cycle change
