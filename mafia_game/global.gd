@@ -12,7 +12,7 @@ var cycle = 0 # Number of "Days"
 var metacycles = 0 #Number of "Months"
 
 var resource_class = preload("res://resources/resource.gd")
-#var module_class = preload("res://scripts/module.gd")
+var module_class = preload("res://scripts/module.gd")
 
 var PATH_RESOURCES = "res://data/resources.csv"
 var PATH_MODULES = "res://data/module"
@@ -145,9 +145,31 @@ func init_modules(path):
 	var station_stats_infos = get_line_array(path+"_station_stats.csv")
 	
 	var i = 0
+	var j = 0
 	var mod
 	while i<general_infos.size():
-		pass
+		# General Info
+		mod = module_class.new(general_infos[i][3], general_infos[i][1])
+		mod.set_desc(general_infos[i][5])
+		mod.spritepath = general_infos[i][7]
+		# Buildcost Info
+		mod.buildprice = buildcost_infos[i][3]
+		j = 4
+		while j < buildcost_infos.size():
+			mod.add_buildmaterial(buildcost_infos[i][j],buildcost_infos[i][j+1])
+			j += 2
+		# Resource Info
+		j=3
+		while j < resources_infos.size():
+			mod.add_resource_change(resources_infos[i][j], resources_infos[i][j+1])
+			j += 2
+		# Station Stat Info
+		j=3
+		while j < station_stats_infos.size():
+			mod.add_station_stat_change(station_stats_infos[i][j], station_stats_infos[i][j+1])
+			j += 2
+		
+		possible_modules.append(mod)  #Möglicherweise Modul mit Name als Key in Dictionary packen, für leichteren Zugriff
 
 func get_line_array(path):
 	var result = []
