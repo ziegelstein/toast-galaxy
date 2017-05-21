@@ -57,7 +57,7 @@ func get_blueprint_by_id(id):
 	if blueprints.has(id):
 		return blueprints[id]
 	else:
-		error_messages += (str(id) + " ist nicht im Katalog enthalten.")
+		error_messages += (id + " ist nicht im Katalog enthalten.")
 		return null #ToDo need a better solution
 
 func get_blueprint_ids():

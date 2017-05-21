@@ -11,4 +11,4 @@ func _ready():
 
 func _on_blueprint_selection_item_pressed( ID ):
 	global.add_message(get_item_text(ID))
-	global.create_module(ID)
+	pass # replace with function body
