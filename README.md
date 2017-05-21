@@ -1,5 +1,9 @@
-# SPIELNAME HIER EINFÜGEN
+# Syndicate Station
 https://cryptpad.fr/pad/#/1/edit/1yvaW9ySdHI-J98SyUQ9hg/+WFnXg4joakaaKqq67bZCuYS/
+http://gamejolt.com/games/Syndicate_Station/254410
+
+## Das Spiel
+Das Spiel ist für den ersten offiziellen Beans Jam entstanden.
 
 ## Das Team
 Eine Kooperation aus [Toastwerk](https://toastwerk.net) und SackTS.
