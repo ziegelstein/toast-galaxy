@@ -12,9 +12,13 @@ func update():
 	global.clear_children(self.get_node("."))
 	var stats = global.get_station_stats()
 	for key in stats:
-		if(get_child_count() != 0):
-			var seperator = VSeparator.new()
-			add_child(seperator)
-		var label = Label.new()
-		label.set_text(str(key, ": ", stats[key]))
-		add_child(label)
+		create_and_append_label(str(key, ": ", stats[key]))
+	create_and_append_label(str("Tag: ", global.get_cycles_of_metacycle()))
+	
+func create_and_append_label(text):
+	if(get_child_count() != 0):
+		var seperator = VSeparator.new()
+		add_child(seperator)
+	var label = Label.new()
+	label.set_text(text)
+	add_child(label)
