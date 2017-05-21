@@ -1,3 +1,10 @@
 #All values of the module that manipulates the station stats; negative values will be substracted, positive added; id;(key;value) KEINE LEERZEILE! KEINE UMLAUTE!
 id;0;Geld;15;Verdaechtigkeit;2;Moral;4
 id;1;Verteidigung;1
+id;2;Geld;10;
+id;3;Geld;10;
+id;4;Geld;10;
+id;5;Geld;10;
+id;6;Geld;10;
+id;7;Geld;10;
+id;8;Geld;10;
