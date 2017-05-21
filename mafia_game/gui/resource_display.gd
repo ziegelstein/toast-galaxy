@@ -17,5 +17,7 @@ func update():
 	if(resource_count == null):
 		resource_count = 0
 	var resource_in_use_count = global.calc_resource_in_use_count(resource_name)
-	var child_count = self.get_child_count()
-	get_node("label").set_text(str(resource_in_use_count, "/", resource_count, " ", resource_name))
+	if(resource_in_use_count == 0):
+		get_node("label").set_text(str(resource_count, " ", resource_name))
+	else:
+		get_node("label").set_text(str(resource_count-resource_in_use_count, "/", resource_count, " ", resource_name))
