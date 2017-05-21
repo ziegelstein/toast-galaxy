@@ -13,10 +13,11 @@ func set_module(module):
 func update():
 	get_node("module_name").set_text(module.get_name())
 	
+	get_node("module_description").set_text(module.get_desc())
+	
 	#Remove previous entries
 	var settings_container = get_node("settings_entries")
-	for i in range(settings_container.get_child_count()):
-		settings_container.remove_child(settings_container.get_child(i))
+	global.clear_children(settings_container)
 	
 	var settings = module.get_module_settings()
 	for key in settings:

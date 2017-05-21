@@ -41,6 +41,32 @@ margin/top = 18.0
 margin/right = 169.0
 margin/bottom = 21.0
 
+[node name="module_description" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 25.0
+margin/right = 169.0
+margin/bottom = 39.0
+text = "module_description"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HSeparator 2" type="HSeparator" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 43.0
+margin/right = 169.0
+margin/bottom = 46.0
+
 [node name="settings_entries" type="VBoxContainer" parent="."]
 
 focus/ignore_mouse = false
@@ -48,9 +74,9 @@ focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 25.0
+margin/top = 50.0
 margin/right = 169.0
-margin/bottom = 25.0
+margin/bottom = 50.0
 alignment = 0
 
 

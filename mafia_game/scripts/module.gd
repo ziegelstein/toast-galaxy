@@ -142,6 +142,9 @@ func get_name():
 func get_modname():
 	return modname
 
+func get_desc():
+	return desc
+
 func get_sprite():
 	return mySprite
 	

@@ -1,3 +1,11 @@
 # Contain all Buildcosts of an module; id;uron;buildtime;station_stats;ressources (key;value) KEINE LEERZEILE! KEINE UMLAUTE!
 id;0;Baukosten;150;Bauzeit;10;Bauteile;20
 id;1;Baukosten;50;Bauzeit;3;Bauteile;5;Treibstoff;5
+id;2;Baukosten;150;Bauzeit;10;Bauteile;20
+id;3;Baukosten;150;Bauzeit;10;Bauteile;20
+id;4;Baukosten;150;Bauzeit;10;Bauteile;20
+id;5;Baukosten;150;Bauzeit;10;Bauteile;20
+id;6;Baukosten;150;Bauzeit;10;Bauteile;20
+id;7;Baukosten;150;Bauzeit;10;Bauteile;20
+id;8;Baukosten;150;Bauzeit;10;Bauteile;20
+id;9;Baukosten;150;Bauzeit;10;Bauteile;20

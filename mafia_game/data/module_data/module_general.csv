@@ -1,3 +1,11 @@
 #Contains general informations about the module, have the following order: id,module name,description,spritepath (always key,value) KEINE LEERZEILE! KEINE UMLAUTE!
-id;0;modname;casino;desc;Ein Ort an dem das Gesindel seine sauerverdienten Uron verspielen kann;spritepath;res://assets/freierBauplatz.png
-id;1;modname;generator;desc;Erzeugt Strom aus Treibstoff;spritepath;res://assets/freierBauplatz.png
+id;0;modname;casino;desc;Ein Ort an dem das Gesindel seine sauerverdienten Uron verspielen kann.;spritepath;res://assets/freierBauplatz.png
+id;1;modname;kraftwerk;desc;Erzeugt Strom aus Treibstoff.;spritepath;res://assets/freierBauplatz.png
+id;2;modname;hangar;desc;Stellt Landebuchten fuer deine werten Gaeste bereit.;spritepath;res://assets/freierBauplatz.png
+id;3;modname;lebenserhaltung;desc;Sorgt fuer frische Luft in deiner dollen Raumstation.;spritepath;res://assets/freierBauplatz.png
+id;4;modname;bar;desc;Verwandelt Alkohol in Uron und Gaeste in Schnapsleichen.;spritepath;res://assets/freierBauplatz.png
+id;5;modname;lager;desc;Hier fahren deine Mitarbeiter Rennen auf ihren Hubwagen. Manchmal lagern sie hier sogar deine Ressourcen ein.;spritepath;res://assets/freierBauplatz.png
+id;6;modname;werkstatt;desc;Space-Piraten und andere dunkle Gesellen lassen hier ihre Raumschiffe neu lackieren und mit neuen Nummernschildern versehen. Keine Ahnung, warum die Space-Police sie danach nicht mehr jagt, aber dein Problem ist das nicht.;spritepath;res://assets/freierBauplatz.png
+id;7;modname;hyroponische_farm;desc;Hydrowas? Egal, zumindest bauen hier deine Mitarbeiter dein Space-Ganja und weitere leckere Sachen an.;spritepath;res://assets/freierBauplatz.png
+id;8;modname;labor;desc;Forschen und Drogenbrauen, insofern deine Mitarbeiter hier nicht vergessen die Abluft einzuschalten.;spritepath;res://assets/freierBauplatz.png
+id;9;modname;habitat;desc;Hier wohnen und schlafen deine Mitarbeiter.;spritepath;res://assets/freierBauplatz.png
