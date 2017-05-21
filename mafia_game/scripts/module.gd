@@ -120,6 +120,9 @@ func set_desc(description):
 func get_name():
 	return name
 
+func get_desc():
+	return desc
+
 func get_sprite():
 	return mySprite
 	
