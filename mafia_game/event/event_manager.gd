@@ -52,16 +52,17 @@ func calculate_weight(eventarray):
 	# Generates a Array that is weighted according to the weight of all Events
 	var weightedEvents = []
 	for Event in eventarray:
-		for i in range(Event.getWeight()):
+		for i in range(Event.get_weight()):
 			weightedEvents.append(Event)
 	return weightedEvents
 
 func get_event():
 	return Events
 
-func get_erepared_event():
+func get_prepared_event():
 	#Return a prepared Event
 	prepare_events()
+	randomize()
 	return Events[rand_range(1.0,Events.size())]
 
 func parse_event_file(path):

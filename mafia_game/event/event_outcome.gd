@@ -36,7 +36,7 @@ func get_outcome_desc():
 func fullfill():
 	if (valuetype == 0):
 	# Valuetype 0 = a Ressource Type
-		var allvalues = global.get_ressources()
+		var allvalues = global.get_resources()
 		if (allvalues.has(valuekey)):
 			if (operator == 0):
 				allvalues[valuekey] += value
