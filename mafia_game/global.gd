@@ -14,6 +14,8 @@ var metacycles = 0 #Number of "Months"
 var blueprint_reader_class = preload("res://scripts/blueprint_reader.gd") #Reads the blueprints in
 var global_blueprint_reader # Is the global Instance of a Blueprint reader
 var resource_class = preload("res://resources/resource.gd")
+var module_factory_class = preload("res://scripts/module_factory.gd")
+var module_factory
 
 var PATH_RESOURCES = "res://data/resources.csv"
 var PATH_MODULES = "res://data/module_data/module"
@@ -22,7 +24,7 @@ var main_scene
 
 func _init():
 	init_resources(PATH_RESOURCES)
-#	init_modules(PATH_MODULES)
+	init_modules(PATH_MODULES)
 
 func _ready():
 	# Called every time the node is added to the scene.
