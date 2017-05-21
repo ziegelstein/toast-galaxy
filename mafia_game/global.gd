@@ -214,7 +214,6 @@ func init_modules(path):
 			if (resources_infos[i][0][0] != "#"): # Checks if the loaded line is an comment
 				var j = 0
 				while j < resources_infos[i].size():
-					print(j)
 					tempdict[resources_infos[i][j]]=resources_infos[i][j+1]
 					j += 2
 				resources_blueprint[tempdict["id"]] = tempdict

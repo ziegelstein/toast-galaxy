@@ -240,8 +240,8 @@ func manipulate_resources():
 	print(module_resource_changes)
 	for resource_key in module_resource_changes.keys():
 		if (global.resources.has(resource_key)):
-			var add_val = global.resources[resource_key].get_value() + module_resource_changes[resource_key]
-			global.resources[resource_key].add_value(module_resource_changes[resource_key]) # Add visual output
+			var add_val = int(global.resources[resource_key].get_value()) + int(module_resource_changes[resource_key])
+			global.resources[resource_key].set_value(add_val) # Add visual output
 		else:
 			global.add_message("Fehler:" + "Resource " + resource_key +" nicht vorhanden. Pruefe module.csv!")
 		pass
