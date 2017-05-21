@@ -92,12 +92,12 @@ func get_last_messege():
 func add_message(message):
 	if (message.length() != 0):
 		messages.append(message)
-	pass
+	main_scene.get_node("left_panel/message_log").update()
 
 func add_messages(messagearray):
 	if (messagearray.size() != 0):
 		for message in messagearray:
-			messages.append(message)
+			add_message(message)
 	pass
 
 # Functions for the cycle change:
@@ -122,6 +122,7 @@ func cycle_change():
 	##ToDo Think about other stuff that happen around cycle change
 	update_stats_display()
 	update_resource_display()
+	add_message(str("-- Tag ", get_cycles_of_metacycle(), " --"))
 	pass
 
 func init_resources(path):
