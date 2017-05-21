@@ -8,5 +8,5 @@ id;4;beute;0;energie_belegt;10;personal_belegt;5;Uron;10;alkohol;-5
 id;5;beute;0;energie_belegt;5;personal_belegt;10
 id;6;beute;0;energie_belegt;15;personal_belegt;10;bauteile;-5;Uron;15
 id;7;beute;0;energie_belegt;15;personal_belegt;15;drogen;5;alkohol;10
-id;8;Uron;15;energie_belegt;15personal_belegt;5;drogen;10
-id;9;Uron;15;energie_belegt;5;personal_max;25;lebenserhaltung;-25
+id;8;beute;0;energie_belegt;15personal_belegt;5;drogen;10
+id;9;beute;0;energie_belegt;5;personal_max;25;lebenserhaltung;-25
