@@ -9,3 +9,5 @@ id;6;modname;werkstatt;desc;Space-Piraten und andere dunkle Gesellen lassen hier
 id;7;modname;hyroponische_farm;desc;Hydrowas? Egal, zumindest bauen hier deine Mitarbeiter dein Space-Ganja und weitere leckere Sachen an.;spritepath;res://assets/freierBauplatz.png
 id;8;modname;labor;desc;Forschen und Drogenbrauen, insofern deine Mitarbeiter hier nicht vergessen die Abluft einzuschalten.;spritepath;res://assets/freierBauplatz.png
 id;9;modname;habitat;desc;Hier wohnen und schlafen deine Mitarbeiter.;spritepath;res://assets/freierBauplatz.png
+id;10;modname;hehler;desc;Dieser lässige Typ kauft Plündergut an und steckt sich das ein oder andere Teil ein, wenn du grad nicht hinguckst.;spritepath;res://assets/freierBauplatz.png
+id;11;modname;cybercycler;desc;Hier wohnen ein paar zum Teil dicke, kauzige, alte Männer, die Plündergut in Bauteile und Treibstoff verwerten.;spritepath;res://assets/freierBauplatz.png
