@@ -25,6 +25,7 @@ var main_scene
 func _init():
 	init_resources(PATH_RESOURCES)
 	init_modules(PATH_MODULES)
+	module_factory = module_factory_class.new()
 
 func _ready():
 	# Called every time the node is added to the scene.
