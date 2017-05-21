@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://gui/stats_display.gd" type="Script" id=2]
 [ext_resource path="res://gui/resources.gd" type="Script" id=3]
 [ext_resource path="res://gui/message_feed.gd" type="Script" id=4]
 [ext_resource path="res://gui/module_settings.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/blueprint_selection.gd" type="Script" id=6]
 
 [node name="main" type="Control"]
 
@@ -85,7 +86,6 @@ script/script = ExtResource( 4 )
 
 [node name="spacestation_overview" type="PanelContainer" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -113,6 +113,22 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="TextureButton" type="TextureButton" parent="spacestation_overview"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 637.0
+margin/bottom = 485.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+params/resize_mode = 0
+params/stretch_mode = 0
+
 [node name="right_panel" parent="." instance=ExtResource( 5 )]
 
 visibility/visible = false
@@ -132,6 +148,22 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Nächster Tag"
 flat = false
+
+[node name="blueprint_selection" type="PopupMenu" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 20.0
+margin/bottom = 20.0
+popup/exclusive = false
+items = [  ]
+script/script = ExtResource( 6 )
+
+[connection signal="pressed" from="spacestation_overview/TextureButton" to="." method="_on_TextureButton_pressed"]
 
 [connection signal="pressed" from="next_day_button" to="." method="_on_next_day_button_pressed"]
 

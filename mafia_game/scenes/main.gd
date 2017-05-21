@@ -9,3 +9,8 @@ func _ready():
 
 func _on_next_day_button_pressed():
 	global.cycle_change()
+
+
+func _on_TextureButton_pressed():
+	get_node("blueprint_selection").popup()
+	pass # replace with function body
