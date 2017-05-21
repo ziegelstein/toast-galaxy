@@ -20,7 +20,7 @@ var PATH_MODULES = "res://data/module_data/module"
 
 func _init():
 	init_resources(PATH_RESOURCES)
-	init_modules(PATH_MODULES)
+#	init_modules(PATH_MODULES)
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -225,3 +225,14 @@ func get_line_array(path):
 	while !file.eof_reached():
 		result.append(file.get_csv_line(";"))
 	return result
+	
+func calc_resource_in_use_count(resource_name):
+	var sum = 0
+	var modules = get_modules()
+	for i in range(modules.size()):
+		var module = modules[i]
+		var settings = module.get_module_settings()
+		for key in settings:
+			if(key == resource_name):
+				sum += settings[key]
+	return sum
