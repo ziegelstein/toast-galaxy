@@ -146,46 +146,55 @@ func init_modules(path):
 	var station_stats_infos = get_line_array(path+"_station_stats.csv")
 	
 	var general_blueprint = {}
-	var build_blueprint = {}
+	var buildcost_blueprint = {}
 	var resources_blueprint = {}
 	var station_stats_blueprint = {}
 	var i = 0
 	# var mod
-	print(station_stats_infos.size())
-	print(station_stats_infos[i].size())
-	print(station_stats_infos[i+1].size())
+	var tempdict = {}
+	
+	#ToDo das Einlesen der Arrays in eine einzige Function auslagern
 	while i<general_infos.size():
 		if (not general_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
-			j = 0
+			var j = 0
 			while j < general_infos[i].size():
-				general_blueprint[general_infos[i][j]]=general_infos[i][j+1]
+				tempdict[general_infos[i][j]]=general_infos[i][j+1]
 				j += 2
+			general_blueprint[tempdict["id"]] = tempdict
+			tempdict = {}
 		i += 1
 	i = 0
 	while i < buildcost_infos.size():
 		if (not buildcost_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
-			j = 0
+			var j = 0
 			while j < buildcost_infos[i].size():
-				buildcost_blueprint[buildcost_infos[i][j]]=buildcost_infos[i][j+1]
+				tempdict[buildcost_infos[i][j]]=buildcost_infos[i][j+1]
 				j += 2
+			buildcost_blueprint[tempdict["id"]] = tempdict
+			tempdict = {}
 		i += 1
 	i = 0
 	while i < resources_infos.size():
 		if (not resources_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
-			j = 0
-			while j < resource_infos[i].size():
-				resources_blueprint[resources_infos[i][j]]=resources_infos[i][j+1]
+			var j = 0
+			while j < resources_infos[i].size():
+				tempdict[resources_infos[i][j]]=resources_infos[i][j+1]
 				j += 2
+			resources_blueprint[tempdict["id"]] = tempdict
+			tempdict = {}
 		i += 1
 	i = 0
 	while i < station_stats_infos.size():
 		if (not station_stats_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
-			j = 0
+			var j = 0
 			while j < station_stats_infos[i].size():
-				station_stats_blueprint[station_stats_infos[i][j]]=station_stats_infos[i][j+1]
+				tempdict[station_stats_infos[i][j]]=station_stats_infos[i][j+1]
 				j += 2
+			station_stats_blueprint[tempdict["id"]] = tempdict
+			tempdict = {}
 		i += 1
-	module_blueprints = {"general":general_blueprint,"build":build_blueprint,"resource":resources_blueprint,"station_stats":station_stats_blueprint}
+	print(general_blueprint["0"]["modname"])
+	module_blueprints = {"general":general_blueprint,"build":buildcost_blueprint,"resources":resources_blueprint,"station_stats":station_stats_blueprint}
 		# General Info
 		# mod = module_class.new(general_infos[i][3], general_infos[i][1])
 		# mod.set_desc(general_infos[i][5])
