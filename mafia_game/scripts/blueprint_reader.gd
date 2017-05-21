@@ -37,8 +37,10 @@ func create_module_blueprint():
 		# Read in all resources
 		for blueprint_key in resources_blueprint[str(i)].keys():
 			blueprints[str(i)].add_resources(blueprint_key,resources_blueprint[str(i)][blueprint_key])
+			
 		# Read in all station_stats
 		for blueprint_key in station_stats_blueprint[str(i)].keys():
+			### print("key:", blueprint_key, " value:", station_stats_blueprint[str(i)][blueprint_key])
 			blueprints[str(i)].add_station_stats(blueprint_key,station_stats_blueprint[str(i)][blueprint_key])
 	pass
 

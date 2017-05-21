@@ -6,7 +6,7 @@ var messages = []
 var modules = []
 var possible_modules = []
 var resources = {} setget , get_resources
-var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "GeladenerLayer":0} setget , get_station_stats
+var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":1, "Verdaechtigkeit":0, "GeladenerLayer":0} setget , get_station_stats
 ## ToDo Add a dict for "other" items like the cycles or quest variables
 var cycle = 1 # Number of "Days"
 var metacycles = 0 #Number of "Months"
@@ -53,6 +53,9 @@ func add_resource(key, value):
 func get_resource(key):
 	if (resources.has(key)):
 		return resources[key]
+	for res in resources.keys():
+		if resources[res].has_property(key):
+			return resources[res].get_property(key) 
 	return null #Should throw an error
 
 func get_station_stats():
@@ -139,26 +142,27 @@ func cycle_change():
 	##ToDo Think about other stuff that happen around cycle change
 	update_stats_display()
 	update_resource_display()
+	generate_visitors()
 	add_message(str("-- Tag ", get_cycles_of_metacycle(), " --"))
 	pass
 
 func generate_visitors():
 	var visitor = 0
 	var day_luck = (randi()%4 / 2)
-	var max_ladebuchten = get_resources_value("ladebuchten_max")
-	var bel_ladebuchten = get_resources_value("ladebuchten_belegt")
-	var pop = get_station_stats_value("popularitaet") #Check the key
+	var max_ladebuchten = get_resource("ladebuchten_belegt").get_value()
+	var bel_ladebuchten = get_resource("ladebuchten_max")
+	var pop = get_station_stat("Popularitaet") #Check the key
 	pop = int(pop * day_luck)
-	var lebenserhaltung = get_resources_value("lebenserhaltung")
-	while (bel_ladebuchten < max_ladebuchten and lebenserhaltung > 0 and pop > 0):
+	var lebenserhaltung = get_resource("lebenserhaltung").get_value()
+	while (int(bel_ladebuchten) < int(max_ladebuchten) and lebenserhaltung > 0 and pop > 0):
 		# Schiff dockt an Station an bis die Pop unter 0 geht, es keine Lebenserhaltung mehr gibt oder alle Ladebuchten voll sind
 		## ToDo Create ship_docks() Function
 		pop -= 1
 		bel_ladebuchten += 1
 		visitor += 5
 		lebenserhaltung -=5
-	set_resource_value("ladebuchen_belegt", max_ladebuchten)
-	set_resource_value("lebenserhaltung", lebenserhaltung)
+	set_resource("ladebuchen_belegt", max_ladebuchten)
+	set_resource("lebenserhaltung", lebenserhaltung)
 	return visitor
 
 func non_addative_key(key): # A super dirty hack
@@ -244,6 +248,7 @@ func init_modules(path):
 					tempdict[resources_infos[i][j]]=resources_infos[i][j+1]
 					j += 2
 				resources_blueprint[tempdict["id"]] = tempdict
+				print(tempdict)
 				tempdict = {}
 		i += 1
 	i = 0
@@ -254,6 +259,7 @@ func init_modules(path):
 				while j < station_stats_infos[i].size():
 					tempdict[station_stats_infos[i][j]]=station_stats_infos[i][j+1]
 					j += 2
+				
 				station_stats_blueprint[tempdict["id"]] = tempdict
 				tempdict = {}
 		i += 1
@@ -269,6 +275,7 @@ func get_line_array(path):
 	return result
 	
 func calc_resource_in_use_count(resource_name):
+	# Dafuq?
 	var sum = 0
 	var modules = get_modules()
 	for i in range(modules.size()):

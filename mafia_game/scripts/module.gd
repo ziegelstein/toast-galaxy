@@ -230,7 +230,7 @@ func on_cycle_change(modifications, cycle):
 	# If the building process is still in work, the counter of the remaing decreases by one, if the counter fall to 0 the module is build
 	else:
 		remaining_build_time -= 1
-		global.add_message("Modul "+ name + " ist in " + str(remaining_build_time) + " fertiggestellt.")
+		global.add_message("Modul "+ name + " ist in " + str(remaining_build_time) + " Tage fertiggestellt.")
 		if (remaining_build_time <= 0):
 			set_is_build(true)
 			update_sprite()
@@ -242,7 +242,8 @@ func manipulate_resources():
 			var add_val = int(global.resources[resource_key].get_value()) + int(module_resource_changes[resource_key])
 			global.resources[resource_key].set_value(add_val) # Add visual output
 		else:
-			global.add_message("Fehler:" + "Resource " + resource_key +" nicht vorhanden. Pruefe module.csv!")
+			pass ## ToDo Something is very wrong with the station_stats parsing, but I have no idea what ...
+		#	global.add_message("Fehler:" + "Resource " + resource_key +" nicht vorhanden. Pruefe module.csv!")
 		pass
 	pass
 	

@@ -23,11 +23,17 @@ func set_value(val):
 func get_value():
 	return value
 
+func has_properties():
+	return additional_properties.empty()
+
+func has_property(key):
+	return additional_properties.has(key)
+
 func add_property(key, value):
 	additional_properties[key] = value
 	
 
 func get_property(key):
-	if(additional_properties.has_key(key)):
+	if(additional_properties.has(key)):
 		return additional_properties[key]
 	return null
