@@ -1,3 +1,3 @@
-# Contain all Buildcosts of an module; id;uron;station_stats;ressources (key;value)
-id;0;uron;150;Bauteile;20
-id;1;uron;50;Bauteile;5;Treibstoff;5
+# Contain all Buildcosts of an module; id;uron;buildtime;station_stats;ressources (key;value) KEINE LEERZEILE!
+id;0;uron;150;Bauzeit;10;Bauteile;20
+id;1;uron;50;Bauteile;Bauzeit;3;5;Treibstoff;5
