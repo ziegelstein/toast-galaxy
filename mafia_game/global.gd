@@ -188,43 +188,48 @@ func init_modules(path):
 	var module_blueprints = {}
 	#ToDo das Einlesen der Arrays in eine einzige Function auslagern
 	while i<general_infos.size():
-		if (not general_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
-			var j = 0
-			while j < general_infos[i].size():
-				tempdict[general_infos[i][j]]=general_infos[i][j+1]
-				j += 2
-			general_blueprint[tempdict["id"]] = tempdict
-			tempdict = {}
+		if (general_infos[i][0].length() != 0):
+			if (general_infos[i][0][0] != "#"): # Checks if the loaded line is an comment
+				var j = 0
+				while j < general_infos[i].size():
+					tempdict[general_infos[i][j]]=general_infos[i][j+1]
+					j += 2
+				general_blueprint[tempdict["id"]] = tempdict
+				tempdict = {}
 		i += 1
 	i = 0
 	while i < buildcost_infos.size():
-		if (not buildcost_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
-			var j = 0
-			while j < buildcost_infos[i].size():
-				tempdict[buildcost_infos[i][j]]=buildcost_infos[i][j+1]
-				j += 2
-			buildcost_blueprint[tempdict["id"]] = tempdict
-			tempdict = {}
+		if (buildcost_infos[i][0].length() != 0):
+			if (buildcost_infos[i][0][0] != "#"): # Checks if the loaded line is an comment
+				var j = 0
+				while j < buildcost_infos[i].size():
+					tempdict[buildcost_infos[i][j]]=buildcost_infos[i][j+1]
+					j += 2
+				buildcost_blueprint[tempdict["id"]] = tempdict
+				tempdict = {}
 		i += 1
 	i = 0
 	while i < resources_infos.size():
-		if (not resources_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
-			var j = 0
-			while j < resources_infos[i].size():
-				tempdict[resources_infos[i][j]]=resources_infos[i][j+1]
-				j += 2
-			resources_blueprint[tempdict["id"]] = tempdict
-			tempdict = {}
+		if (resources_infos[i][0].length() != 0):
+			if (resources_infos[i][0][0] != "#"): # Checks if the loaded line is an comment
+				var j = 0
+				while j < resources_infos[i].size():
+					print(j)
+					tempdict[resources_infos[i][j]]=resources_infos[i][j+1]
+					j += 2
+				resources_blueprint[tempdict["id"]] = tempdict
+				tempdict = {}
 		i += 1
 	i = 0
 	while i < station_stats_infos.size():
-		if (not station_stats_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
-			var j = 0
-			while j < station_stats_infos[i].size():
-				tempdict[station_stats_infos[i][j]]=station_stats_infos[i][j+1]
-				j += 2
-			station_stats_blueprint[tempdict["id"]] = tempdict
-			tempdict = {}
+		if (station_stats_infos[i][0].length() != 0):
+			if (station_stats_infos[i][0][0] != "#"): # Checks if the loaded line is an comment
+				var j = 0
+				while j < station_stats_infos[i].size():
+					tempdict[station_stats_infos[i][j]]=station_stats_infos[i][j+1]
+					j += 2
+				station_stats_blueprint[tempdict["id"]] = tempdict
+				tempdict = {}
 		i += 1
 	module_blueprints = {"general":general_blueprint,"build":buildcost_blueprint,"resources":resources_blueprint,"station_stats":station_stats_blueprint}
 	global_blueprint_reader = blueprint_reader_class.new(module_blueprints)
