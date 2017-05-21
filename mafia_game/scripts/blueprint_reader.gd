@@ -36,7 +36,7 @@ func create_module_blueprint():
 				blueprints[i].add_buildmaterials(buildcosts_blueprint[i][blueprint_key])
 		# Read in all resources
 		for blueprint_key in resources_blueprint[i].keys():
-			blueprints[i].add_ressources(blueprint_key,ressources_blueprint[i][blueprint_key])
+			blueprints[i].add_ressources(blueprint_key,resources_blueprint[i][blueprint_key])
 		# Read in all station_stats
 		for blueprint_key in station_stats_blueprint[i].keys():
 			blueprints[i].add_station_stats(blueprint_key,station_stats_blueprint[i][blueprint_key])
@@ -54,8 +54,8 @@ func get_blueprints():
 
 func get_blueprint_by_id(id):
 	# ID must be a String!
-	if blueprint.has(id):
-		return blueprint[id]
+	if blueprints.has(id):
+		return blueprints[id]
 	else:
 		error_messages += (id + " ist nicht im Katalog enthalten.")
 		return null #ToDo need a better solution
