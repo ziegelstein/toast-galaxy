@@ -5,17 +5,15 @@ var blueprints = {} #Catalog of all blueprints; the key is the id of the bluepri
 var warning_messages = "" # Messages that indicates a warning
 var error_messages = ""# Messages that indicates a error
 
-func _ready():
-	read_blueprint()
+func _init(module_blueprints):
+	self.module_blueprints = module_blueprints
+	create_module_blueprint()
 	if warning_messages.size() < 0:
 		global.add_message(("Warnung: " + warning_messages))
 	if error_messages.size() < 0:
 		global.add_message(("Fehler: " + error_messages))
-	pass
-	
-func read_blueprint():
-	self.module_blueprints = global.module_blueprints
-	create_module_blueprint()
+
+func _ready():
 	pass
 
 func create_module_blueprint():
@@ -62,7 +60,8 @@ func get_blueprint_by_id(id):
 		error_messages += (id + " ist nicht im Katalog enthalten.")
 		return null #ToDo need a better solution
 
-
+func get_blueprint_ids():
+	return blueprints.keys()
 
 class module_blueprint:
 	# General Vars

@@ -7,13 +7,13 @@ var modules = []
 var possible_modules = []
 var resources = {} setget , get_resources
 var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "GeladenerLayer":1} setget , get_station_stats
-var module_blueprints = {} # List of blueprints
 ## ToDo Add a dict for "other" items like the cycles or quest variables
 var cycle = 0 # Number of "Days"
 var metacycles = 0 #Number of "Months"
 
+var blueprint_reader_class = preload("res://scripts/blueprint_reader.gd") #Reads the blueprints in
+var global_blueprint_reader # Is the global Instance of a Blueprint reader
 var resource_class = preload("res://resources/resource.gd")
-var module_class = preload("res://scripts/module.gd")
 
 var PATH_RESOURCES = "res://data/resources.csv"
 var PATH_MODULES = "res://data/module_data/module"
@@ -157,7 +157,7 @@ func init_modules(path):
 	var i = 0
 	# var mod
 	var tempdict = {}
-	
+	var module_blueprints = {}
 	#ToDo das Einlesen der Arrays in eine einzige Function auslagern
 	while i<general_infos.size():
 		if (not general_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
@@ -199,6 +199,7 @@ func init_modules(path):
 			tempdict = {}
 		i += 1
 	module_blueprints = {"general":general_blueprint,"build":buildcost_blueprint,"resources":resources_blueprint,"station_stats":station_stats_blueprint}
+	global_blueprint_reader = blueprint_reader_class.new(module_blueprints)
 		# General Info
 		# mod = module_class.new(general_infos[i][3], general_infos[i][1])
 		# mod.set_desc(general_infos[i][5])
