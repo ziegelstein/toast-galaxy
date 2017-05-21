@@ -19,7 +19,7 @@ var PATH_MODULES = "res://data/module"
 
 func _init():
 	init_resources(PATH_RESOURCES)
-	init_modules(PATH_MODULES)
+#	init_modules(PATH_MODULES)
 
 func _ready():
 	# Called every time the node is added to the scene.
