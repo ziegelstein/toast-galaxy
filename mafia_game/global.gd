@@ -144,8 +144,22 @@ func cycle_change():
 
 func generate_visitors():
 	var visitor = 0
-	var day_uck = range(randf(),randf()+2)
-	return visitors
+	var day_luck = (randi()%4 / 2)
+	var max_ladebuchten = get_resources_value("ladebuchten_max")
+	var bel_ladebuchten = get_resources_value("ladebuchten_belegt")
+	var pop = get_station_stats_value("popularitaet") #Check the key
+	pop = int(pop * day_luck)
+	var lebenserhaltung = get_resources_value("lebenserhaltung")
+	while (bel_ladebuchten < max_ladebuchten and lebenserhaltung > 0 and pop > 0):
+		# Schiff dockt an Station an bis die Pop unter 0 geht, es keine Lebenserhaltung mehr gibt oder alle Ladebuchten voll sind
+		## ToDo Create ship_docks() Function
+		pop -= 1
+		bel_ladebuchten += 1
+		visitor += 5
+		lebenserhaltung -=5
+	set_resource_value("ladebuchen_belegt", max_ladebuchten)
+	set_resource_value("lebenserhaltung", lebenserhaltung)
+	return visitor
 
 func non_addative_key(key): # A super dirty hack
 	if (key == "ladebuchten_max"):
