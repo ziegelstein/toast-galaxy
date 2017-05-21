@@ -113,6 +113,8 @@ max_lines_visible = -1
 
 [node name="right_panel" parent="." instance=ExtResource( 4 )]
 
+visibility/visible = false
+
 [node name="next_day_button" type="Button" parent="."]
 
 focus/ignore_mouse = false

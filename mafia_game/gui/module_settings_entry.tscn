@@ -50,4 +50,6 @@ editable = true
 prefix = ""
 suffix = ""
 
+[connection signal="value_changed" from="spinbox" to="." method="_on_spinbox_value_changed"]
+
 
