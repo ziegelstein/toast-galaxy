@@ -1,5 +1,5 @@
 # Contain all Ressources that a module will manipulate at a cycle change. First Entry is the id, then the ressources(Key;Value) KEINE LEERZEILE! KEINE UMLAUTE!
-id;0;energie_belegt;10;Uron;15
+id;0;energie_belegt;10;Uron;15;lebenserhaltung;99
 id;1;treibstoff;-5;energie_max;30
 id;2;beute;0
 id;3;beute;0
