@@ -7,6 +7,7 @@ var modules = []
 var possible_modules = []
 var resources = {} setget , get_resources
 var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "Geld":1, "GeladenerLayer":1} setget , get_station_stats
+var module_blueprints = {} # List of blueprints
 ## ToDo Add a dict for "other" items like the cycles or quest variables
 var cycle = 0 # Number of "Days"
 var metacycles = 0 #Number of "Months"
@@ -15,7 +16,7 @@ var resource_class = preload("res://resources/resource.gd")
 var module_class = preload("res://scripts/module.gd")
 
 var PATH_RESOURCES = "res://data/resources.csv"
-var PATH_MODULES = "res://data/module"
+var PATH_MODULES = "res://data/module_data/module"
 
 func _init():
 	init_resources(PATH_RESOURCES)
@@ -144,32 +145,69 @@ func init_modules(path):
 	var resources_infos = get_line_array(path+"_resources.csv")
 	var station_stats_infos = get_line_array(path+"_station_stats.csv")
 	
+	var general_blueprint = {}
+	var build_blueprint = {}
+	var resources_blueprint = {}
+	var station_stats_blueprint = {}
 	var i = 0
-	var j = 0
-	var mod
+	# var mod
+	print(station_stats_infos.size())
+	print(station_stats_infos[i].size())
+	print(station_stats_infos[i+1].size())
 	while i<general_infos.size():
+		if (not general_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
+			j = 0
+			while j < general_infos[i].size():
+				general_blueprint[general_infos[i][j]]=general_infos[i][j+1]
+				j += 2
+		i += 1
+	i = 0
+	while i < buildcost_infos.size():
+		if (not buildcost_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
+			j = 0
+			while j < buildcost_infos[i].size():
+				buildcost_blueprint[buildcost_infos[i][j]]=buildcost_infos[i][j+1]
+				j += 2
+		i += 1
+	i = 0
+	while i < resources_infos.size():
+		if (not resources_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
+			j = 0
+			while j < resource_infos[i].size():
+				resources_blueprint[resources_infos[i][j]]=resources_infos[i][j+1]
+				j += 2
+		i += 1
+	i = 0
+	while i < station_stats_infos.size():
+		if (not station_stats_infos[i][0][0] == "#"): # Checks if the loaded line is an comment
+			j = 0
+			while j < station_stats_infos[i].size():
+				station_stats_blueprint[station_stats_infos[i][j]]=station_stats_infos[i][j+1]
+				j += 2
+		i += 1
+	module_blueprints = {"general":general_blueprint,"build":build_blueprint,"resource":resources_blueprint,"station_stats":station_stats_blueprint}
 		# General Info
-		mod = module_class.new(general_infos[i][3], general_infos[i][1])
-		mod.set_desc(general_infos[i][5])
-		mod.spritepath = general_infos[i][7]
+		# mod = module_class.new(general_infos[i][3], general_infos[i][1])
+		# mod.set_desc(general_infos[i][5])
+		# mod.spritepath = general_infos[i][7]
 		# Buildcost Info
-		mod.buildprice = buildcost_infos[i][3]
-		j = 4
-		while j < buildcost_infos.size():
-			mod.add_buildmaterial(buildcost_infos[i][j],buildcost_infos[i][j+1])
-			j += 2
+		# mod.buildprice = buildcost_infos[i][3]
+		# j = 4
+		# while j < buildcost_infos.size():
+		#	mod.add_buildmaterial(buildcost_infos[i][j],buildcost_infos[i][j+1])
+		#	j += 2
 		# Resource Info
-		j=3
-		while j < resources_infos.size():
-			mod.add_resource_change(resources_infos[i][j], resources_infos[i][j+1])
-			j += 2
+		# j=3
+		# while j < resources_infos.size():
+		#	mod.add_resource_change(resources_infos[i][j], resources_infos[i][j+1])
+		#	j += 2
 		# Station Stat Info
-		j=3
-		while j < station_stats_infos.size():
-			mod.add_station_stat_change(station_stats_infos[i][j], station_stats_infos[i][j+1])
-			j += 2
-		
-		possible_modules.append(mod)  #Möglicherweise Modul mit Name als Key in Dictionary packen, für leichteren Zugriff
+		# j=3
+		# while j < station_stats_infos.size():
+		#	mod.add_station_stat_change(station_stats_infos[i][j], station_stats_infos[i][j+1])
+		#	j += 2
+		#i += 1
+		#possible_modules.append(mod)  #Möglicherweise Modul mit Name als Key in Dictionary packen, für leichteren Zugriff
 
 func get_line_array(path):
 	var result = []

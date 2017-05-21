@@ -1,3 +1,3 @@
-#Contains general informations about the module, have the following order: id,module name,description,spritepath (always key,value)
+#Contains general informations about the module, have the following order: id,module name,description,spritepath (always key,value) KEINE LEERZEILE!
 id;0;modname;casino;desc;Ein Ort an dem das Gesindel seine sauerverdienten Uron verspielen kann;spritepath;res://assets/freierBauplatz.png
 id;1;modname;generator;desc;Erzeugt Strom aus Treibstoff;spritepath;res://assets/freierBauplatz.png

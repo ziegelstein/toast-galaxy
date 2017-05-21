@@ -63,12 +63,18 @@ func set_module_informations():
 		if (!buildmaterials.empty()):
 			for key in buildmaterials.keys():
 				module_informations[(key+"-Baukosten")] = buildmaterials[key]
-	if (not module_needs.empty()):
-		for module_need_key in module_needs.keys():
-			module_informations[(module_need_key+"verbrauch")] = module_needs[module_need_key]
-	if (not module_production.empty()):
-		for module_production_key in module_production.keys():
-			module_informations[(module_need_key+"produktion")] = module_production[module_production_key]
+	if (not module_resource_changes.empty()):
+		for module_resource_key in module_resource_changes.keys():
+			if (module_resource_changes[module_resource_key] <= 0):
+				module_informations[(module_resource_key + "verbrauch")] = module_resource_changes[module_resource_key]
+			else:
+				module_informations[(module_resource_key + "produktion")] = module_resource_changes[module_resource_key]
+	if (not module_station_stat_changes.empty()):
+		for module_station_stat_key in module_station_stat_changes.keys():
+			if (module_station_stat_changes[module_station_stat_key] <= 0):
+				module_informations[module_station_stat_key + "belastung"] = module_station_stat_changes[module_station_stat_key]
+			else:
+				module_informations[module_station_stat_key + "erzeugung"] = module_station_stat_changes[module_station_stat_key]
 	pass
 
 func set_module_settings():
@@ -117,7 +123,6 @@ func get_name():
 func get_sprite():
 	return mySprite
 	
-
 func add_buildmaterial(key, value):
 	buildmaterials[key] = value
 
@@ -146,7 +151,7 @@ func on_build(position, pos_vector, rotation):
 	if (is_build_possible()):
 		global.get_station_stat["Geld"] = global.get_station_stat["Geld"] - buildprice
 		for key in buildmaterials.keys():
-			var value = global.get_resource(key) - buildmaterial[key]
+			var value = global.get_resource(key) - buildmaterials[key]
 			global.set_resource(key, value)
 		self.position = position
 		self.pos_vector = pos_vector
