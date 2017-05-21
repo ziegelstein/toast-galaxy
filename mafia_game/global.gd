@@ -6,7 +6,7 @@ var messages = []
 var modules = []
 var possible_modules = []
 var resources = {} setget , get_resources
-var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "Geld":1, "GeladenerLayer":1} setget , get_station_stats
+var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "GeladenerLayer":1} setget , get_station_stats
 var module_blueprints = {} # List of blueprints
 ## ToDo Add a dict for "other" items like the cycles or quest variables
 var cycle = 0 # Number of "Days"
@@ -17,6 +17,8 @@ var module_class = preload("res://scripts/module.gd")
 
 var PATH_RESOURCES = "res://data/resources.csv"
 var PATH_MODULES = "res://data/module_data/module"
+
+var main_scene
 
 func _init():
 	init_resources(PATH_RESOURCES)
@@ -110,7 +112,7 @@ func cycle_change():
 		metacycles = metacycles + 1
 		add_message("Der Don hat sich seinen Anteil genommen")
 		##ToDo Add some more fancy interaction
-		station_stats["Geld"] = station_stats["Geld"] - 1000
+		resources["Uron"].set_value(float(resources["Uron"].get_value()) - 1000)
 	##ToDo Add a Loop that calls every "on_cycle_change module methode"
 	for mod in modules:
 		if(mod.has_method("on_cycle_change")):
@@ -118,6 +120,8 @@ func cycle_change():
 	##ToDo Generate some Day variables, the general activity for example
 	##ToDo Add a "Draw an Event"
 	##ToDo Think about other stuff that happen around cycle change
+	update_stats_display()
+	update_resource_display()
 	pass
 
 func init_resources(path):
@@ -235,3 +239,18 @@ func calc_resource_in_use_count(resource_name):
 			if(key == resource_name):
 				sum += settings[key]
 	return sum
+
+func set_main_scene(main_scene):
+	self.main_scene = main_scene
+	
+func update_resource_display():
+	main_scene.get_node("left_panel/resources").update()
+	
+func update_stats_display():
+	main_scene.get_node("stats").update()
+	
+func clear_children(node):
+	var children = node.get_children()
+	var count = node.get_children().size()
+	for i in range(count):
+		children[i].free()

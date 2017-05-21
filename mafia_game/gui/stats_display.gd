@@ -9,6 +9,7 @@ func _ready():
 	pass
 
 func update():
+	global.clear_children(self.get_node("."))
 	var stats = global.get_station_stats()
 	for key in stats:
 		if(get_child_count() != 0):
