@@ -193,7 +193,6 @@ func init_modules(path):
 			station_stats_blueprint[tempdict["id"]] = tempdict
 			tempdict = {}
 		i += 1
-	print(general_blueprint["0"]["modname"])
 	module_blueprints = {"general":general_blueprint,"build":buildcost_blueprint,"resources":resources_blueprint,"station_stats":station_stats_blueprint}
 		# General Info
 		# mod = module_class.new(general_infos[i][3], general_infos[i][1])
