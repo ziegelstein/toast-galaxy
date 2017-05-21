@@ -237,7 +237,6 @@ func on_cycle_change(modifications, cycle):
 	return true
 	
 func manipulate_resources():
-	print(module_resource_changes)
 	for resource_key in module_resource_changes.keys():
 		if (global.resources.has(resource_key)):
 			var add_val = int(global.resources[resource_key].get_value()) + int(module_resource_changes[resource_key])
@@ -248,7 +247,6 @@ func manipulate_resources():
 	pass
 	
 func manipulate_station_stats():
-	print(module_station_stats_changes)
 	for station_stats_key in module_station_stats_changes.keys():
 		if (global.station_stats.has(station_stats_key)):
 			var new_station_stat = global.get_station_stat(station_stats_key) + module_station_stats_changes[station_stats_key]
