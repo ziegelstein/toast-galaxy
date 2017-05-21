@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://gui/stats_display.gd" type="Script" id=2]
 [ext_resource path="res://gui/resources.gd" type="Script" id=3]
-[ext_resource path="res://gui/message_feed.gd" type="Script" id=4]
-[ext_resource path="res://gui/module_settings.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/blueprint_selection.gd" type="Script" id=6]
+[ext_resource path="res://gui/changeable_module_property.tscn" type="PackedScene" id=4]
 
 [node name="main" type="Control"]
 
@@ -41,7 +39,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 11.0
 margin/top = 56.0
-margin/right = 254.0
+margin/right = 163.0
 margin/bottom = 547.0
 alignment = 0
 
@@ -53,7 +51,7 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 243.0
+margin/right = 152.0
 margin/bottom = 240.0
 alignment = 0
 script/script = ExtResource( 3 )
@@ -66,53 +64,109 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 244.0
-margin/right = 243.0
+margin/right = 152.0
 margin/bottom = 247.0
 
 [node name="message_log" type="RichTextLabel" parent="left_panel"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 3
+size_flags/horizontal = 2
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 251.0
-margin/right = 243.0
+margin/right = 152.0
 margin/bottom = 491.0
 bbcode/enabled = false
 bbcode/bbcode = ""
-visible_characters = -100
-script/script = ExtResource( 4 )
+visible_characters = -1
 
 [node name="spacestation_overview" type="PanelContainer" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 269.0
-margin/top = 69.0
-margin/right = -749.0
-margin/bottom = -519.0
+margin/left = 177.0
+margin/top = 61.0
+margin/right = -781.0
+margin/bottom = -513.0
 
-[node name="GridContainer" type="GridContainer" parent="spacestation_overview"]
+[node name="Label" type="Label" parent="spacestation_overview"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 7.0
+margin/top = 239.0
+margin/right = 637.0
+margin/bottom = 253.0
+text = "Spacestation Overview"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="right_panel" type="VBoxContainer" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 3
+size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 7.0
-margin/top = 7.0
-margin/right = 513.0
-margin/bottom = 483.0
-columns = 4
+margin/left = 837.0
+margin/top = 67.0
+margin/right = 1006.0
+margin/bottom = 488.0
+alignment = 0
 
-[node name="right_panel" parent="." instance=ExtResource( 5 )]
+[node name="module_name" type="Label" parent="right_panel"]
 
-margin/left = 815.0
-margin/top = 107.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 169.0
+margin/bottom = 14.0
+text = "module_name"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HSeparator" type="HSeparator" parent="right_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 169.0
+margin/bottom = 21.0
+
+[node name="module_properties" type="VBoxContainer" parent="right_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 25.0
+margin/right = 169.0
+margin/bottom = 113.0
+alignment = 0
+
+[node name="property" parent="right_panel/module_properties" instance=ExtResource( 4 )]
+
+[node name="property 2" parent="right_panel/module_properties" instance=ExtResource( 4 )]
+
+margin/top = 46.0
+margin/bottom = 88.0
 
 [node name="next_day_button" type="Button" parent="."]
 
@@ -120,7 +174,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 810.0
+margin/left = 832.0
 margin/top = 506.0
 margin/right = 1001.0
 margin/bottom = 558.0
@@ -130,40 +184,6 @@ shortcut = null
 text = "Nächster Tag"
 flat = false
 
-[node name="blueprint_selection_button" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 810.0
-margin/top = 45.0
-margin/right = 1001.0
-margin/bottom = 97.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Modul bauen"
-flat = false
-
-[node name="blueprint_selection" type="PopupMenu" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 20.0
-margin/bottom = 20.0
-popup/exclusive = false
-items = [  ]
-script/script = ExtResource( 6 )
-
 [connection signal="pressed" from="next_day_button" to="." method="_on_next_day_button_pressed"]
-
-[connection signal="pressed" from="blueprint_selection_button" to="." method="_on_blueprint_selection_button_pressed"]
-
-[connection signal="item_pressed" from="blueprint_selection" to="blueprint_selection" method="_on_blueprint_selection_item_pressed"]
 
 

@@ -142,6 +142,11 @@ func cycle_change():
 	add_message(str("-- Tag ", get_cycles_of_metacycle(), " --"))
 	pass
 
+func generate_visitors():
+	var visitor = 0
+	var day_uck = range(randf(),randf()+2)
+	return visitors
+
 func non_addative_key(key): # A super dirty hack
 	if (key == "ladebuchten_max"):
 		return true
