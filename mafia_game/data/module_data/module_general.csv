@@ -8,3 +8,4 @@ id;5;modname;lager;desc;Hier fahren deine Mitarbeiter Rennen auf ihren Hubwagen.
 id;6;modname;werkstatt;desc;Space-Piraten und andere dunkle Gesellen lassen hier ihre Raumschiffe neu lackieren und mit neuen Nummernschildern versehen. Keine Ahnung, warum die Space-Police sie danach nicht mehr jagt, aber dein Problem ist das nicht.;spritepath;res://assets/freierBauplatz.png
 id;7;modname;hyroponische_farm;desc;Hydrowas? Egal, zumindest bauen hier deine Mitarbeiter dein Space-Ganja und weitere leckere Sachen an.;spritepath;res://assets/freierBauplatz.png
 id;8;modname;labor;desc;Forschen und Drogenbrauen, insofern deine Mitarbeiter hier nicht vergessen die Abluft einzuschalten.;spritepath;res://assets/freierBauplatz.png
+id;9;modname;habitat;desc;Hier wohnen und schlafen deine Mitarbeiter.;spritepath;res://assets/freierBauplatz.png
