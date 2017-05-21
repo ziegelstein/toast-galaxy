@@ -1,19 +1,20 @@
 extends Node
 
 #Basic vars
+const BUILD_SPRITE_PATH = "res://assets/freierBauplatz.png"
 var id = 0
 var name = "generic name"
 var modname = "generic module"
 var desc = "generic description"
 
 # Meta vars
-var submodules = [] # Array of Submodules
+#var submodules = [] # Array of Submodules - ToDo
 var module_informations = {}
 var module_settings = {}
 
 # Input / Output vars
 var module_resource_changes = {}
-var module_station_stat_changes = {}
+var module_station_stats_changes = {}
 
 #Building Variable
 var buildprice = 0 # Price in Uron
@@ -34,19 +35,37 @@ var rotation = deg2rad(0) # The rotation in degree
 var mySprite
 
 ### Constructor Functions ###
-func _init(modname, id):
-	self.modname = modname
+func on_create(id, modname, desc):
 	self.id = id
+	self.modname = modname
+	self.name = modname + str(number_of_same_modules()+1)
+	self.desc = desc
 	pass
+
+func number_of_same_modules():
+	var n = 0
+	for module in global.modules:
+		if (self.modname == module.get_modname()):
+			n += 1
+	return n
 
 func _ready():
 	mySprite = get_node("moduleSprite")
-	name = modname + str(id)
-	set_graph()
+	update_sprite()
 	
-func set_graph():
+func update_sprite():
 	var imageTexture = ImageTexture.new()
 	mySprite.set_texture(imageTexture.load(spritepath))
+	mySprite.set_pos(pos_vector)
+	mySprite.set_rot(rotation)
+	if (is_visible == false):
+		mySprite.hide()
+	else: mySprite.show()
+	
+func set_sprite(sprite_path):
+	mySprite = get_node("moduleSprite")
+	var imageTexture = ImageTexture.new()
+	mySprite.set_texture(imageTexture.load(sprite_path))
 	mySprite.set_pos(pos_vector)
 	mySprite.set_rot(rotation)
 	if (is_visible == false):
@@ -69,12 +88,12 @@ func set_module_informations():
 				module_informations[(module_resource_key + "verbrauch")] = module_resource_changes[module_resource_key]
 			else:
 				module_informations[(module_resource_key + "produktion")] = module_resource_changes[module_resource_key]
-	if (not module_station_stat_changes.empty()):
-		for module_station_stat_key in module_station_stat_changes.keys():
-			if (module_station_stat_changes[module_station_stat_key] <= 0):
-				module_informations[module_station_stat_key + "belastung"] = module_station_stat_changes[module_station_stat_key]
+	if (not module_station_stats_changes.empty()):
+		for module_station_stat_key in module_station_stats_changes.keys():
+			if (module_station_stats_changes[module_station_stat_key] <= 0):
+				module_informations[module_station_stat_key + "belastung"] = module_station_stats_changes[module_station_stat_key]
 			else:
-				module_informations[module_station_stat_key + "erzeugung"] = module_station_stat_changes[module_station_stat_key]
+				module_informations[module_station_stat_key + "erzeugung"] = module_station_stats_changes[module_station_stat_key]
 	pass
 
 func set_module_settings():
@@ -119,6 +138,9 @@ func set_desc(description):
 
 func get_name():
 	return name
+	
+func get_modname():
+	return modname
 
 func get_sprite():
 	return mySprite
@@ -129,8 +151,8 @@ func add_buildmaterial(key, value):
 func add_resource_change(key, value):
 	module_resource_changes[key] = value
 
-func add_station_stat_change(key, value):
-	module_station_stat_changes[key] = value
+func add_station_stats_change(key, value):
+	module_station_stats_changes[key] = value
 
 ### Building Functions ###
 func add_submodule():
@@ -138,28 +160,29 @@ func add_submodule():
 
 func is_build_possible():
 	# Checks if all requierements for the module to build are met
-	if (global.get_station_stat("Geld") >= buildprice):
+	if (int(global.get_resource("Uron").get_value()) >= buildprice):
 		for key in buildmaterials.keys():
-			if (global.get_resource(key) < buildmaterials[key]):
+			if (global.get_resource(key).get_value() < buildmaterials[key]):
 				return false
 				##ToDo Add requierement for research
 		return true
 	return false
 
-func on_build(position, pos_vector, rotation):
+func on_build(sprite_path, position, pos_vector, rotation):
 	#build the module
 	if (is_build_possible()):
-		global.get_station_stat["Geld"] = global.get_station_stat["Geld"] - buildprice
+		global.get_resource("Uron").set_value(int(global.get_resource("Uron").get_value()) - buildprice)
 		for key in buildmaterials.keys():
-			var value = global.get_resource(key) - buildmaterials[key]
+			var value = global.get_resource(key).get_value() - buildmaterials[key]
 			global.set_resource(key, value)
+		self.spritepath = sprite_path
 		self.position = position
 		self.pos_vector = pos_vector
 		self.rotation = rotation
 		##ToDo Add a "In Construction" Sprite
-		set_graph()
+		set_sprite(BUILD_SPRITE_PATH)
 		global.add_message("Modul " + name + " wird gebaut.")
-		return register_modul()
+		return register_module()
 	return false
 	
 func destroy_module(cycles):
@@ -178,7 +201,7 @@ func destroy_module(cycles):
 	global.set_station_stat("Geld", (int(buildprice / 5))) # returns the fitht of the module price back to the players bank account if the module gets destroyed
 	queue_free()
 	pass
-	
+
 func set_is_build(boolean):
 	is_build = boolean
 	pass
@@ -207,8 +230,33 @@ func on_cycle_change(modifications, cycle):
 		global.add_message("Modul "+ name + " ist in " + str(remaining_build_time) + " fertiggestellt.")
 		if (remaining_build_time <= 0):
 			set_is_build(true)
+			update_sprite()
 	return true
 	
+func manipulate_resources():
+	print(module_resource_changes)
+	for resource_key in module_resource_changes.keys():
+		if (global.resources.has(resource_key)):
+			var add_val = global.resources[resource_key].get_value() + module_resource_changes[resource_key]
+			global.resources[resource_key].add_value(module_resource_changes[resource_key]) # Add visual output
+		else:
+			global.add_message("Fehler:" + "Resource " + resource_key +" nicht vorhanden. Pruefe module.csv!")
+		pass
+	pass
+	
+func manipulate_station_stats():
+	print(module_station_stats_changes)
+	for station_stats_key in module_station_stats_changes.keys():
+		if (global.station_stats.has(station_stats_key)):
+			var new_station_stat = global.get_station_stat(station_stats_key) + module_station_stats_changes[station_stats_key]
+			global.add_station_stat(new_station_stat)
+		else:
+			global.add_message("Fehler:" + "Resource " + station_stats_key +" nicht vorhanden. Pruefe module.csv!")
+		pass
+	pass
+
 func cycle_logic(modifications, cycle):
+	manipulate_resources()
+	manipulate_station_stats()
 	# Method there all the Module Magic happens, return a message
 	return ""

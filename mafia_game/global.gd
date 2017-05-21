@@ -6,7 +6,7 @@ var messages = []
 var modules = []
 var possible_modules = []
 var resources = {} setget , get_resources
-var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "GeladenerLayer":1} setget , get_station_stats
+var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "GeladenerLayer":0} setget , get_station_stats
 ## ToDo Add a dict for "other" items like the cycles or quest variables
 var cycle = 0 # Number of "Days"
 var metacycles = 0 #Number of "Months"
@@ -14,8 +14,10 @@ var metacycles = 0 #Number of "Months"
 var blueprint_reader_class = preload("res://scripts/blueprint_reader.gd") #Reads the blueprints in
 var global_blueprint_reader # Is the global Instance of a Blueprint reader
 var resource_class = preload("res://resources/resource.gd")
+var station_class = preload("res://scripts/station.gd")
+var global_station
 var module_factory_class = preload("res://scripts/module_factory.gd")
-var module_factory
+var global_module_factory
 
 var PATH_RESOURCES = "res://data/resources.csv"
 var PATH_MODULES = "res://data/module_data/module"
@@ -25,13 +27,15 @@ var main_scene
 func _init():
 	init_resources(PATH_RESOURCES)
 	init_modules(PATH_MODULES)
-	module_factory = module_factory_class.new()
+	create_station()
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	var root = get_tree().get_root()
+	global_module_factory = module_factory_class.new()
 	current_scene = root.get_child( root.get_child_count() - 1 )
+	create_module("0")
 
 func get_resources():
 	return resources
@@ -68,7 +72,10 @@ func set_station_stat(key, value):
 func add_station_stat(key, value):
 	station_stats[key]=value
 	pass
-	
+
+func create_module(blueprint_id):
+	modules.append(global_module_factory.build_module(blueprint_id))
+
 func add_module(module):
 	if (modules.has(module) == false):
 		modules.append(module)
@@ -95,7 +102,8 @@ func get_last_messege():
 func add_message(message):
 	if (message.length() != 0):
 		messages.append(message)
-	main_scene.get_node("left_panel/message_log").update()
+	if (main_scene != null):
+		main_scene.get_node("left_panel/message_log").update()
 
 func add_messages(messagearray):
 	if (messagearray.size() != 0):
@@ -117,9 +125,15 @@ func cycle_change():
 		##ToDo Add some more fancy interaction
 		resources["Uron"].set_value(float(resources["Uron"].get_value()) - 1000)
 	##ToDo Add a Loop that calls every "on_cycle_change module methode"
+	for resource_key in resources.keys(): # Super dirty hack, resets the non additiv resources to 0
+		if (non_addative_key(resource_key)):
+			resources[resource_key].set_value(0)
+	for station_stats_key in station_stats.keys():
+		if (non_addative_key(station_stats_key)):
+			station_stats[station_stats_key]= 0
 	for mod in modules:
 		if(mod.has_method("on_cycle_change")):
-			mod.on_cycle_change()
+			mod.on_cycle_change({}, cycle)
 	##ToDo Generate some Day variables, the general activity for example
 	##ToDo Add a "Draw an Event"
 	##ToDo Think about other stuff that happen around cycle change
@@ -127,6 +141,17 @@ func cycle_change():
 	update_resource_display()
 	add_message(str("-- Tag ", get_cycles_of_metacycle(), " --"))
 	pass
+
+func non_addative_key(key): # A super dirty hack
+	if (key == "ladebuchten_max"):
+		return true
+	elif (key == "Verdaechtigkeit"):
+		return true
+	elif (key == "personal_max"):
+		return true
+	elif (key == "lebenserhaltung"):
+		return true
+	return false
 
 func init_resources(path):
 	var file = File.new()
@@ -203,28 +228,6 @@ func init_modules(path):
 		i += 1
 	module_blueprints = {"general":general_blueprint,"build":buildcost_blueprint,"resources":resources_blueprint,"station_stats":station_stats_blueprint}
 	global_blueprint_reader = blueprint_reader_class.new(module_blueprints)
-		# General Info
-		# mod = module_class.new(general_infos[i][3], general_infos[i][1])
-		# mod.set_desc(general_infos[i][5])
-		# mod.spritepath = general_infos[i][7]
-		# Buildcost Info
-		# mod.buildprice = buildcost_infos[i][3]
-		# j = 4
-		# while j < buildcost_infos.size():
-		#	mod.add_buildmaterial(buildcost_infos[i][j],buildcost_infos[i][j+1])
-		#	j += 2
-		# Resource Info
-		# j=3
-		# while j < resources_infos.size():
-		#	mod.add_resource_change(resources_infos[i][j], resources_infos[i][j+1])
-		#	j += 2
-		# Station Stat Info
-		# j=3
-		# while j < station_stats_infos.size():
-		#	mod.add_station_stat_change(station_stats_infos[i][j], station_stats_infos[i][j+1])
-		#	j += 2
-		#i += 1
-		#possible_modules.append(mod)  #Möglicherweise Modul mit Name als Key in Dictionary packen, für leichteren Zugriff
 
 func get_line_array(path):
 	var result = []
@@ -259,3 +262,7 @@ func clear_children(node):
 	var count = node.get_children().size()
 	for i in range(count):
 		children[i].free()
+		
+func create_station():
+	global_station = station_class.new()
+	pass

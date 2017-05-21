@@ -2,128 +2,56 @@ extends Node
 
 ## Enums of the pos ##
 # Need to be set, go ahead until line 124
-enum pos0{POS, VECTOR, ROTATION}
-const POS = 0
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos0 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos1{POS, VECTOR, ROTATION}
-const POS = 1
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos1 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos2{POS, VECTOR, ROTATION}
-const POS = 2
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos2 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 }# Rotation in Degree
 
-enum pos3{POS, VECTOR, ROTATION}
-const POS = 3
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos3 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos4{POS, VECTOR, ROTATION}
-const POS = 4
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos4 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos5{POS, VECTOR, ROTATION}
-const POS = 5
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos5= {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos6{POS, VECTOR, ROTATION}
-const POS = 6
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos6 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos7{POS, VECTOR, ROTATION}
-const POS = 7
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos7 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos8{POS, VECTOR, ROTATION}
-const POS = 8
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos8 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos9{POS, VECTOR, ROTATION}
-const POS = 9
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos9 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos10{POS, VECTOR, ROTATION}
-const POS = 10
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos10 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos11{POS, VECTOR, ROTATION}
-const POS = 11
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos11 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos12{POS, VECTOR, ROTATION}
-const POS = 12
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos12 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos13{POS, VECTOR, ROTATION}
-const POS = 13
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos13 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos14{POS, VECTOR, ROTATION}
-const POS = 14
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos14 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos15{POS, VECTOR, ROTATION}
-const POS = 15
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos15 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos16{POS, VECTOR, ROTATION}
-const POS = 16
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos16 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos17{POS, VECTOR, ROTATION}
-const POS = 17
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos17 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos18{POS, VECTOR, ROTATION}
-const POS = 18
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos18 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos19{POS, VECTOR, ROTATION}
-const POS = 19
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos19 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 }# Rotation in Degree
 
-enum pos20{POS, VECTOR, ROTATION}
-const POS = 20
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos20 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos21{POS, VECTOR, ROTATION}
-const POS = 21
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos21 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos22{POS, VECTOR, ROTATION}
-const POS = 22
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos22 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-enum pos23{POS, VECTOR, ROTATION}
-const POS = 23
-const VECTOR = Vector2(0,0)
-const ROTATION = 0 # Rotation in Degree
+var pos23 = {POS = 0, VECTOR = Vector2(0,0), ROTATION = 0 } # Rotation in Degree
 
-var laver = 0 # Layer will be changed on the creation of the station layer
-var positions = [] #max Postions = 24 (3x2x4)
+var layer = 0 # Layer will be changed on the creation of the station layer
+var positions = [] #max Postions = 24 (3x2x4) [bool if taken, pos_enum]
 var modul_positions = [] # Contains [Int Position, Module]
 var mySprite
 
@@ -132,8 +60,7 @@ const SPRITEPATH = ""
 const VECTOR = Vector2(0,0)
 const ROTATION = 0
 
-func _init(layer):
-	self.layer = layer
+func _init():
 	positions = [[false, pos0],[false, pos1],[false, pos2],[false, pos3],[false, pos4],[false, pos5],[false, pos6],[false, pos7],[false, pos8],[false, pos9],[false, pos10],[false, pos11],[false, pos12],[false, pos13],[false, pos14],[false, pos15],[false, pos16],[false, pos17],[false, pos18],[false, pos19],[false, pos20],[false, pos21],[false, pos22],[false, pos23]]
 	pass
 
@@ -143,15 +70,19 @@ func _ready():
 	update_sprite()
 	pass
 	
-func add_module(module):
+func set_layer(layer):
+	self.layer = layer
+	pass
+
+func add_station_module(module):
 	#Adds a Module into the station layer and returns the pos Data of that module
 	for position in positions:
 		if position[0] == false:
 			var pos_enum = position[1]
 			if (modul_positions.empty()):
-				modul_positions[0] = [module, pos_enum["POS"]]
+				modul_positions.append([pos_enum["POS"], module])
 			else:
-				modul_positions[modul_positions.size()] = [module, pos_enum["POS"]]
+				modul_positions[modul_positions.size()] = [pos_enum["POS"], module]
 			position[0] = true
 			global.add_message("Habe " + module.get_name() + "auf Layer " + str(layer) + " und Position " + str(pos_enum["POS"])+ " hinzugefügt")
 			return pos_enum
@@ -166,7 +97,7 @@ func update_sprite():
 		mySprite.hide()
 		# Hide all modules of that layer
 		for module_position in modul_positions:
-			module_postion[1].hide_module()
+			module_position[1].hide_module()
 	pass
 
 func get_module_pos(module):
@@ -186,6 +117,7 @@ func get_module_args(module):
 
 func set_sprite(sprite_path, position):
 	# set the sprite of the station layer
+	var imageTexture = ImageTexture.new()
 	mySprite.set_texture(imageTexture.load(sprite_path))
 	mySprite.set_pos(position)
 	pass

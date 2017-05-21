@@ -31,7 +31,6 @@ func create_module_blueprint():
 		# Creates a new blueprint
 		blueprints[str(i)] = module_blueprint.new(str(i),inread_modname,inread_desc,inread_spritepath,inread_buildprice,inread_buildtime)
 		# Read in all buildmaterials
-		print(blueprints.size())
 		for blueprint_key in buildcosts_blueprint[str(i)].keys():
 			if (blueprint_key != "Baukosten" && blueprint_key != "Bauzeit" && buildcosts_blueprint[str(i)].size()>2):
 				blueprints[str(i)].add_buildmaterials(blueprint_key, buildcosts_blueprint[str(i)][blueprint_key])
@@ -67,7 +66,7 @@ func get_blueprint_ids():
 class module_blueprint:
 	# General Vars
 	var modid = -1
-	var modname = ""
+	var modname = "generic_module"
 	var desc = ""
 	var spritepath = "res://assets/freierBauplatz.png"
 	# Build Vars

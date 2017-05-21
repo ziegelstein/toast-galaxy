@@ -2,7 +2,7 @@ extends "res://scripts/module.gd"
 
 
 func _init(id):
-	._init("kraftwerk", id)
+	._init("casion", id)
 	
 
 func _ready():
