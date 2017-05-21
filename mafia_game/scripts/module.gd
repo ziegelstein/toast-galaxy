@@ -12,12 +12,12 @@ var module_informations = {}
 var module_settings = {}
 
 # Input / Output vars
-var module_needs = {}
-var module_production = {}
+var module_resource_changes = {}
+var module_station_stat_changes = {}
 
 #Building Variable
 var buildprice = 0 # Price in Uron
-var buildmaterials = [] #An Array of Arrays style [[str,int]] ->[["key",value], ["maschinen", 5], ["Waffen", 3]]
+var buildmaterials = {} #A Dict style [[str,int]] ->[["key",value], ["maschinen", 5], ["Waffen", 3]]
 var build_time = 1 #The amount of time that is needed to build that module
 var remaining_build_time = build_time
 var is_build = false
@@ -60,7 +60,7 @@ func set_module_informations():
 		module_informations["Bauzeit"] = remaining_build_time
 	if (is_build == false):
 		module_informations["Baukosten"] = buildprice
-		if (buildmaterials.size() != 0):
+		if (!buildmaterials.empty()):
 			for key in buildmaterials.keys():
 				module_informations[(key+"-Baukosten")] = buildmaterials[key]
 	if (not module_needs.empty()):
@@ -117,6 +117,16 @@ func get_name():
 func get_sprite():
 	return mySprite
 	
+
+func add_buildmaterial(key, value):
+	buildmaterials[key] = value
+
+func add_resource_change(key, value):
+	module_resource_changes[key] = value
+
+func add_station_stat_change(key, value):
+	module_station_stat_changes[key] = value
+
 ### Building Functions ###
 func add_submodule():
 	pass
@@ -124,8 +134,8 @@ func add_submodule():
 func is_build_possible():
 	# Checks if all requierements for the module to build are met
 	if (global.get_station_stat("Geld") >= buildprice):
-		for buildmaterial in buildmaterials:
-			if (global.get_resource(buildmaterial[0]) < buildmaterial[1]):
+		for key in buildmaterials.keys():
+			if (global.get_resource(key) < buildmaterials[key]):
 				return false
 				##ToDo Add requierement for research
 		return true
@@ -135,9 +145,9 @@ func on_build(position, pos_vector, rotation):
 	#build the module
 	if (is_build_possible()):
 		global.get_station_stat["Geld"] = global.get_station_stat["Geld"] - buildprice
-		for buildmaterial in buildmaterials:
-			var value = global.get_resource(buildmaterial[0]) - buildmaterial[1]
-			global.set_resource(buildmaterial[0], value)
+		for key in buildmaterials.keys():
+			var value = global.get_resource(key) - buildmaterial[key]
+			global.set_resource(key, value)
 		self.position = position
 		self.pos_vector = pos_vector
 		self.rotation = rotation

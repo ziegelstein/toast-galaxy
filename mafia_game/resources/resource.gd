@@ -16,6 +16,12 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
+	
+func set_value(val):
+	value = val
+	
+func get_value():
+	return value
 
 func add_property(key, value):
 	additional_properties[key] = value
