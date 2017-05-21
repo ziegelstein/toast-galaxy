@@ -147,7 +147,15 @@ func non_addative_key(key): # A super dirty hack
 		return true
 	elif (key == "Verdaechtigkeit"):
 		return true
+	elif (key == "personal_belegt"):
+		return true
 	elif (key == "personal_max"):
+		return true
+	elif (key == "energie_belegt"):
+		return true
+	elif (key == "energie_max"):
+		return true
+	elif (key == "ladebuchten_belegt"):
 		return true
 	elif (key == "lebenserhaltung"):
 		return true
