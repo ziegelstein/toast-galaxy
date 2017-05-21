@@ -11,7 +11,7 @@ Eine Kooperation aus [Toastwerk](https://toastwerk.net) und SackTS.
 - **DEV** [Buli](https://buli.me)
 - **DEV** Wuhsel
 - **DEV & ORG** [Ziegelstein](https://ziegel.me)
-- **MASKOTTCHEN** Rouven
+- **ORG/SUP** Rouven
 - **STORY** Bananenmann
 - **GRAFIK** Taschenmogul
 ### Helfer
