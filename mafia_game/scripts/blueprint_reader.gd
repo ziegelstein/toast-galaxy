@@ -17,10 +17,10 @@ func _ready():
 	pass
 
 func create_module_blueprint():
-	var general_blueprint = module_blueprint["general"]
-	var buildcosts_blueprint = module_blueprint["build"]
-	var resources_blueprint = module_blueprint["resources"]
-	var station_stats_blueprint = module_blueprint["station_stats"]
+	var general_blueprint = module_blueprints["general"]
+	var buildcosts_blueprint = module_blueprints["build"]
+	var resources_blueprint = module_blueprints["resources"]
+	var station_stats_blueprint = module_blueprints["station_stats"]
 	for i in range(general_blueprint.size()):
 		# Read In the general Vars with the read_in function
 		var inread_modname = read_in(general_blueprint, i, "modname")
