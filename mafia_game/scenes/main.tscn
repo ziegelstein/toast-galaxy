@@ -148,6 +148,7 @@ flat = false
 
 [node name="blueprint_selection" type="PopupMenu" parent="."]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

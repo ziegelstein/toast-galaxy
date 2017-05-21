@@ -19,6 +19,8 @@ var global_station
 var module_factory_class = preload("res://scripts/module_factory.gd")
 var global_module_factory
 
+onready var em = get_node("/root/event_manager") 
+
 var PATH_RESOURCES = "res://data/resources.csv"
 var PATH_MODULES = "res://data/module_data/module"
 
@@ -136,6 +138,8 @@ func cycle_change():
 			mod.on_cycle_change({}, cycle)
 	##ToDo Generate some Day variables, the general activity for example
 	##ToDo Add a "Draw an Event"
+	var event = em.get_prepared_event()
+	event.fullfill()
 	##ToDo Think about other stuff that happen around cycle change
 	update_stats_display()
 	update_resource_display()
