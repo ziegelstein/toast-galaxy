@@ -8,7 +8,7 @@ var possible_modules = []
 var resources = {} setget , get_resources
 var station_stats = {"Angriff":0, "Verteidigung":0, "Popularitaet":0, "Verdaechtigkeit":0, "GeladenerLayer":1} setget , get_station_stats
 ## ToDo Add a dict for "other" items like the cycles or quest variables
-var cycle = 0 # Number of "Days"
+var cycle = 1 # Number of "Days"
 var metacycles = 0 #Number of "Months"
 
 var blueprint_reader_class = preload("res://scripts/blueprint_reader.gd") #Reads the blueprints in
