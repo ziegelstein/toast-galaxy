@@ -1,10 +1,19 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	
 	pass
+	
+#### GENERAL FUNCTIONS ####
+
+##### ON INIT FUNCTIONS #####
+
+func load_modules():
+	pass
+
+###### ON LOAD GAME FUNCTIONS ######
+
+###### ON NEW GAME FUNCTIONS ######
+
+#### PIPE FUNCTIONS ####

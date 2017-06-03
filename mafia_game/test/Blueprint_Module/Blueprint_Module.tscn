@@ -1,0 +1,9 @@
+[gd_scene format=1]
+
+[node name="Blueprint_Module" type="Node"]
+
+[node name="Resource_Blueprint" type="Node" parent="."]
+
+[node name="Capsule_Blueprint" type="Node" parent="."]
+
+
