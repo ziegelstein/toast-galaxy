@@ -1,6 +1,11 @@
 # Syndicate Station
-https://cryptpad.fr/pad/#/1/edit/1yvaW9ySdHI-J98SyUQ9hg/+WFnXg4joakaaKqq67bZCuYS/
-http://gamejolt.com/games/Syndicate_Station/254410
+**Wichtige Links**
+- [Cryptpad Ideensamlung](https://cryptpad.fr/pad/#/1/edit/1yvaW9ySdHI-J98SyUQ9hg/+WFnXg4joakaaKqq67bZCuYS/)
+- [Offizielle Gamejolt Seite](http://gamejolt.com/games/Syndicate_Station/254410)
+- [Internes Wiki](https://github.com/ziegelstein/toast-galaxy/wiki)
+
+**Veraltete Links**
+- [Altes Trello Board](https://trello.com/toasd)
 
 ## Das Spiel
 Das Spiel ist für den ersten offiziellen Beans Jam entstanden.
