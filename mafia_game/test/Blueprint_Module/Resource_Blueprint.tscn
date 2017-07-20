@@ -1,5 +1,11 @@
-[gd_scene format=1]
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://test/Blueprint_Module/Generic_Value_Object.gd" type="Script" id=1]
 
 [node name="Resource_Blueprint" type="Node"]
+
+[node name="Generic_Value_Object" type="Node" parent="."]
+
+script/script = ExtResource( 1 )
 
 
